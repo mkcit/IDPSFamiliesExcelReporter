@@ -303,15 +303,19 @@ namespace IDPSFamiliesExcelReporter {
             
             private global::System.Data.DataColumn columnهشاشة3;
             
-            private global::System.Data.DataColumn columnتم;
-            
-            private global::System.Data.DataColumn columnAction;
-            
             private global::System.Data.DataColumn columnهشاشة4;
             
             private global::System.Data.DataColumn columnهشاشة5;
             
             private global::System.Data.DataColumn columnهشاشة6;
+            
+            private global::System.Data.DataColumn columnتم;
+            
+            private global::System.Data.DataColumn columnAction;
+            
+            private global::System.Data.DataColumn columnالجوال;
+            
+            private global::System.Data.DataColumn columnبطاقة_التموين;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -444,22 +448,6 @@ namespace IDPSFamiliesExcelReporter {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn تمColumn {
-                get {
-                    return this.columnتم;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn ActionColumn {
-                get {
-                    return this.columnAction;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn هشاشة4Column {
                 get {
                     return this.columnهشاشة4;
@@ -479,6 +467,38 @@ namespace IDPSFamiliesExcelReporter {
             public global::System.Data.DataColumn هشاشة6Column {
                 get {
                     return this.columnهشاشة6;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn تمColumn {
+                get {
+                    return this.columnتم;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ActionColumn {
+                get {
+                    return this.columnAction;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn الجوالColumn {
+                get {
+                    return this.columnالجوال;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn بطاقة_التموينColumn {
+                get {
+                    return this.columnبطاقة_التموين;
                 }
             }
             
@@ -532,11 +552,13 @@ namespace IDPSFamiliesExcelReporter {
                         string هشاشة1, 
                         string هشاشة2, 
                         string هشاشة3, 
-                        bool تم, 
-                        string Action, 
                         string هشاشة4, 
                         string هشاشة5, 
-                        string هشاشة6) {
+                        string هشاشة6, 
+                        bool تم, 
+                        string Action, 
+                        string الجوال, 
+                        string بطاقة_التموين) {
                 DataRow rowDataRow = ((DataRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         هوية_رب_الاسرة,
@@ -551,11 +573,13 @@ namespace IDPSFamiliesExcelReporter {
                         هشاشة1,
                         هشاشة2,
                         هشاشة3,
-                        تم,
-                        Action,
                         هشاشة4,
                         هشاشة5,
-                        هشاشة6};
+                        هشاشة6,
+                        تم,
+                        Action,
+                        الجوال,
+                        بطاقة_التموين};
                 rowDataRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataRow);
                 return rowDataRow;
@@ -590,11 +614,13 @@ namespace IDPSFamiliesExcelReporter {
                 this.columnهشاشة1 = base.Columns["هشاشة1"];
                 this.columnهشاشة2 = base.Columns["هشاشة2"];
                 this.columnهشاشة3 = base.Columns["هشاشة3"];
-                this.columnتم = base.Columns["تم"];
-                this.columnAction = base.Columns["Action"];
                 this.columnهشاشة4 = base.Columns["هشاشة4"];
                 this.columnهشاشة5 = base.Columns["هشاشة5"];
                 this.columnهشاشة6 = base.Columns["هشاشة6"];
+                this.columnتم = base.Columns["تم"];
+                this.columnAction = base.Columns["Action"];
+                this.columnالجوال = base.Columns["الجوال"];
+                this.columnبطاقة_التموين = base.Columns["بطاقة التموين"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -624,16 +650,20 @@ namespace IDPSFamiliesExcelReporter {
                 base.Columns.Add(this.columnهشاشة2);
                 this.columnهشاشة3 = new global::System.Data.DataColumn("هشاشة3", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnهشاشة3);
-                this.columnتم = new global::System.Data.DataColumn("تم", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnتم);
-                this.columnAction = new global::System.Data.DataColumn("Action", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAction);
                 this.columnهشاشة4 = new global::System.Data.DataColumn("هشاشة4", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnهشاشة4);
                 this.columnهشاشة5 = new global::System.Data.DataColumn("هشاشة5", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnهشاشة5);
                 this.columnهشاشة6 = new global::System.Data.DataColumn("هشاشة6", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnهشاشة6);
+                this.columnتم = new global::System.Data.DataColumn("تم", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnتم);
+                this.columnAction = new global::System.Data.DataColumn("Action", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAction);
+                this.columnالجوال = new global::System.Data.DataColumn("الجوال", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnالجوال);
+                this.columnبطاقة_التموين = new global::System.Data.DataColumn("بطاقة التموين", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnبطاقة_التموين);
                 this.columnهوية_رب_الاسرة.MaxLength = 255;
                 this.columnالاسم.MaxLength = 255;
                 this.columnالاب.MaxLength = 255;
@@ -645,10 +675,12 @@ namespace IDPSFamiliesExcelReporter {
                 this.columnهشاشة1.MaxLength = 255;
                 this.columnهشاشة2.MaxLength = 255;
                 this.columnهشاشة3.MaxLength = 255;
-                this.columnAction.MaxLength = 255;
                 this.columnهشاشة4.MaxLength = 255;
                 this.columnهشاشة5.MaxLength = 255;
                 this.columnهشاشة6.MaxLength = 255;
+                this.columnAction.MaxLength = 255;
+                this.columnالجوال.MaxLength = 255;
+                this.columnبطاقة_التموين.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -983,38 +1015,6 @@ namespace IDPSFamiliesExcelReporter {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool تم {
-                get {
-                    try {
-                        return ((bool)(this[this.tableData.تمColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'تم\' in table \'Data\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableData.تمColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Action {
-                get {
-                    try {
-                        return ((string)(this[this.tableData.ActionColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Action\' in table \'Data\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableData.ActionColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string هشاشة4 {
                 get {
                     try {
@@ -1058,6 +1058,70 @@ namespace IDPSFamiliesExcelReporter {
                 }
                 set {
                     this[this.tableData.هشاشة6Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool تم {
+                get {
+                    try {
+                        return ((bool)(this[this.tableData.تمColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'تم\' in table \'Data\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableData.تمColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Action {
+                get {
+                    try {
+                        return ((string)(this[this.tableData.ActionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Action\' in table \'Data\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableData.ActionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string الجوال {
+                get {
+                    try {
+                        return ((string)(this[this.tableData.الجوالColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'الجوال\' in table \'Data\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableData.الجوالColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string بطاقة_التموين {
+                get {
+                    try {
+                        return ((string)(this[this.tableData.بطاقة_التموينColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'بطاقة التموين\' in table \'Data\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableData.بطاقة_التموينColumn] = value;
                 }
             }
             
@@ -1207,30 +1271,6 @@ namespace IDPSFamiliesExcelReporter {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsتمNull() {
-                return this.IsNull(this.tableData.تمColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetتمNull() {
-                this[this.tableData.تمColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsActionNull() {
-                return this.IsNull(this.tableData.ActionColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetActionNull() {
-                this[this.tableData.ActionColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Isهشاشة4Null() {
                 return this.IsNull(this.tableData.هشاشة4Column);
             }
@@ -1263,6 +1303,54 @@ namespace IDPSFamiliesExcelReporter {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setهشاشة6Null() {
                 this[this.tableData.هشاشة6Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsتمNull() {
+                return this.IsNull(this.tableData.تمColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetتمNull() {
+                this[this.tableData.تمColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsActionNull() {
+                return this.IsNull(this.tableData.ActionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetActionNull() {
+                this[this.tableData.ActionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsالجوالNull() {
+                return this.IsNull(this.tableData.الجوالColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetالجوالNull() {
+                this[this.tableData.الجوالColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isبطاقة_التموينNull() {
+                return this.IsNull(this.tableData.بطاقة_التموينColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setبطاقة_التموينNull() {
+                this[this.tableData.بطاقة_التموينColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1437,17 +1525,17 @@ namespace IDPSFamiliesExcelReporter.FamiliesShelterDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("هشاشة1", "هشاشة1");
             tableMapping.ColumnMappings.Add("هشاشة2", "هشاشة2");
             tableMapping.ColumnMappings.Add("هشاشة3", "هشاشة3");
-            tableMapping.ColumnMappings.Add("تم", "تم");
-            tableMapping.ColumnMappings.Add("Action", "Action");
             tableMapping.ColumnMappings.Add("هشاشة4", "هشاشة4");
             tableMapping.ColumnMappings.Add("هشاشة5", "هشاشة5");
             tableMapping.ColumnMappings.Add("هشاشة6", "هشاشة6");
+            tableMapping.ColumnMappings.Add("تم", "تم");
+            tableMapping.ColumnMappings.Add("Action", "Action");
+            tableMapping.ColumnMappings.Add("الجوال", "الجوال");
+            tableMapping.ColumnMappings.Add("بطاقة التموين", "بطاقة التموين");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `Data` (`HoFID`, `Fname`, `Sname`, `Tname`, `Family`, `MemberID`, `Bi" +
-                "rth`, `Gender`, `Relation`, `Vul1`, `Vul2`, `Vul3`, `Vul4`, `Vul5`, `Vul6`, `IsE" +
-                "xported`, `Action`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO `Data` (`HoFID`, `Fname`, `Sname`, `Tname`, `Family`, `MemberID`, `Birth`, `Gender`, `Relation`, `Vul1`, `Vul2`, `Vul3`, `Vul4`, `Vul5`, `Vul6`, `IsExported`, `Action`, `Mobile`, `UNCard`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("هوية_رب_الاسرة", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "هوية رب الاسرة", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("الاسم", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "الاسم", global::System.Data.DataRowVersion.Current, false, null));
@@ -1466,6 +1554,8 @@ namespace IDPSFamiliesExcelReporter.FamiliesShelterDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("هشاشة6", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "هشاشة6", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("تم", global::System.Data.OleDb.OleDbType.Boolean, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "تم", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Action", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Action", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("الجوال", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "الجوال", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("بطاقة_التموين", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "بطاقة التموين", global::System.Data.DataRowVersion.Current, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1482,7 +1572,7 @@ namespace IDPSFamiliesExcelReporter.FamiliesShelterDataSetTableAdapters {
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        HoFID AS [هوية رب الاسرة], Fname AS الاسم, Sname AS الاب, Tname AS الجد, Family AS العائلة, MemberID AS [هوية الفرد], Birth AS الميلاد, Gender AS التوع, Relation AS العلاقة, Vul1 AS هشاشة1, Vul2 AS هشاشة2, Vul3 AS هشاشة3, Vul4 AS هشاشة4, 
-                         Vul5 AS هشاشة5, Vul6 AS هشاشة6, IsExported AS تم, [Action]
+                         Vul5 AS هشاشة5, Vul6 AS هشاشة6, IsExported AS تم, [Action], Mobile AS الجوال, UNCard AS [بطاقة التموين]
 FROM            Data
 WHERE        (HoFID = ?)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
@@ -1494,15 +1584,15 @@ WHERE        (HoFID = ?)";
             this._commandCollection[1].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("MemberID", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "MemberID", global::System.Data.DataRowVersion.Original, false, null));
             this._commandCollection[2] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = @"SELECT        [Action], Birth AS الميلاد, Family AS العائلة, Fname AS الاسم, Gender AS التوع, HoFID AS [هوية رب الاسرة], MemberID AS [هوية الفرد], Relation AS العلاقة, Sname AS الاب, Tname AS الجد, Vul1 AS هشاشة1, Vul2 AS هشاشة2, Vul3 AS هشاشة3, 
-                         Vul4 AS هشاشة4, Vul5 AS هشاشة5, Vul6 AS هشاشة6
+            this._commandCollection[2].CommandText = @"SELECT        HoFID AS [هوية رب الاسرة], Fname AS الاسم, Sname AS الاب, Tname AS الجد, Family AS العائلة, MemberID AS [هوية الفرد], Birth AS الميلاد, Gender AS التوع, Relation AS العلاقة, Vul1 AS هشاشة1, Vul2 AS هشاشة2, Vul3 AS هشاشة3, Vul4 AS هشاشة4, 
+                         Vul5 AS هشاشة5, Vul6 AS هشاشة6, IsExported AS تم, [Action], Mobile AS الجوال, UNCard AS [بطاقة التموين]
 FROM            Data
 WHERE        (IsExported = 0)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[3].Connection = this.Connection;
             this._commandCollection[3].CommandText = @"SELECT        [Action], Birth AS الميلاد, Family AS العائلة, Fname AS الاسم, Gender AS التوع, HoFID AS [هوية رب الاسرة], IsExported AS تم, MemberID AS [هوية الفرد], Relation AS العلاقة, Sname AS الاب, Tname AS الجد, Vul1 AS هشاشة1, Vul2 AS هشاشة2, 
-                         Vul3 AS هشاشة3, Vul4 AS هشاشة4, Vul5 AS هشاشة5, Vul6 AS هشاشة6
+                         Vul3 AS هشاشة3, Vul4 AS هشاشة4, Vul5 AS هشاشة5, Vul6 AS هشاشة6, Mobile AS الجوال, UNCard AS [بطاقة التموين]
 FROM            Data
 WHERE        (MemberID = ?) AND (Family LIKE '*' & ? & '*') AND (Fname LIKE '*' & ? & '*')";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
@@ -1511,9 +1601,9 @@ WHERE        (MemberID = ?) AND (Family LIKE '*' & ? & '*') AND (Fname LIKE '*' 
             this._commandCollection[3].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Fname", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "الاسم", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[4] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = "INSERT INTO Data\r\n                         (HoFID, Fname, Sname, Tname, Family, M" +
-                "emberID, Birth, Gender, Relation, Vul1, Vul2, Vul3, [Action], IsExported, Vul4, " +
-                "Vul5, Vul6)\r\nVALUES        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            this._commandCollection[4].CommandText = @"INSERT INTO Data
+                         (HoFID, Fname, Sname, Tname, Family, MemberID, Birth, Gender, Relation, Vul1, Vul2, Vul3, [Action], IsExported, Vul4, Vul5, Vul6, UNCard, Mobile)
+VALUES        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[4].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("HoFID", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "HoFID", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[4].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Fname", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Fname", global::System.Data.DataRowVersion.Current, false, null));
@@ -1532,6 +1622,8 @@ WHERE        (MemberID = ?) AND (Family LIKE '*' & ? & '*') AND (Fname LIKE '*' 
             this._commandCollection[4].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Vul4", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Vul4", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[4].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Vul5", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Vul5", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[4].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Vul6", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Vul6", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("UNCard", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "UNCard", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Mobile", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Mobile", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[5] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[5].Connection = this.Connection;
             this._commandCollection[5].CommandText = "UPDATE       Data\r\nSET                IsExported = FALSE, [Action] = ?\r\nWHERE    " +
@@ -1542,8 +1634,8 @@ WHERE        (MemberID = ?) AND (Family LIKE '*' & ? & '*') AND (Fname LIKE '*' 
             this._commandCollection[6] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[6].Connection = this.Connection;
             this._commandCollection[6].CommandText = "UPDATE       Data\r\nSET                Fname = ?, Sname = ?, Tname = ?, Family = ?" +
-                ", Birth = ?, Gender = ?, Vul1 = ?, Vul2 = ?, Vul3 = ?, [Action] = ?, IsExported " +
-                "= false\r\nWHERE        (MemberID = ?)";
+                ", Birth = ?, Gender = ?, Vul1 = ?, Vul2 = ?, Vul3 = ?, Vul4 = ?, Vul5 = ?, Vul6 " +
+                "= ?, [Action] = ?, IsExported = false\r\nWHERE        (MemberID = ?)";
             this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[6].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Fname", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Fname", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[6].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Sname", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Sname", global::System.Data.DataRowVersion.Current, false, null));
@@ -1554,6 +1646,9 @@ WHERE        (MemberID = ?) AND (Family LIKE '*' & ? & '*') AND (Fname LIKE '*' 
             this._commandCollection[6].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Vul1", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Vul1", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[6].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Vul2", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Vul2", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[6].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Vul3", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Vul3", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Vul4", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Vul4", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Vul5", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Vul5", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Vul6", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Vul6", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[6].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Action", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Action", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[6].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_MemberID", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "MemberID", global::System.Data.DataRowVersion.Original, false, null));
             this._commandCollection[7] = new global::System.Data.OleDb.OleDbCommand();
@@ -1717,6 +1812,150 @@ WHERE        (MemberID = ?) AND (Family LIKE '*' & ? & '*') AND (Fname LIKE '*' 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(
+                    string هوية_رب_الاسرة, 
+                    string الاسم, 
+                    string الاب, 
+                    string الجد, 
+                    string العائلة, 
+                    string هوية_الفرد, 
+                    System.DateTime الميلاد, 
+                    string التوع, 
+                    string العلاقة, 
+                    string هشاشة1, 
+                    string هشاشة2, 
+                    string هشاشة3, 
+                    string هشاشة4, 
+                    string هشاشة5, 
+                    string هشاشة6, 
+                    bool تم, 
+                    string Action, 
+                    string الجوال, 
+                    string بطاقة_التموين) {
+            if ((هوية_رب_الاسرة == null)) {
+                throw new global::System.ArgumentNullException("هوية_رب_الاسرة");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(هوية_رب_الاسرة));
+            }
+            if ((الاسم == null)) {
+                throw new global::System.ArgumentNullException("الاسم");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(الاسم));
+            }
+            if ((الاب == null)) {
+                throw new global::System.ArgumentNullException("الاب");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(الاب));
+            }
+            if ((الجد == null)) {
+                throw new global::System.ArgumentNullException("الجد");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(الجد));
+            }
+            if ((العائلة == null)) {
+                throw new global::System.ArgumentNullException("العائلة");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(العائلة));
+            }
+            if ((هوية_الفرد == null)) {
+                throw new global::System.ArgumentNullException("هوية_الفرد");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(هوية_الفرد));
+            }
+            this.Adapter.InsertCommand.Parameters[6].Value = ((System.DateTime)(الميلاد));
+            if ((التوع == null)) {
+                throw new global::System.ArgumentNullException("التوع");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(التوع));
+            }
+            if ((العلاقة == null)) {
+                throw new global::System.ArgumentNullException("العلاقة");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(العلاقة));
+            }
+            if ((هشاشة1 == null)) {
+                throw new global::System.ArgumentNullException("هشاشة1");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(هشاشة1));
+            }
+            if ((هشاشة2 == null)) {
+                throw new global::System.ArgumentNullException("هشاشة2");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(هشاشة2));
+            }
+            if ((هشاشة3 == null)) {
+                throw new global::System.ArgumentNullException("هشاشة3");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(هشاشة3));
+            }
+            if ((هشاشة4 == null)) {
+                throw new global::System.ArgumentNullException("هشاشة4");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(هشاشة4));
+            }
+            if ((هشاشة5 == null)) {
+                throw new global::System.ArgumentNullException("هشاشة5");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[13].Value = ((string)(هشاشة5));
+            }
+            if ((هشاشة6 == null)) {
+                throw new global::System.ArgumentNullException("هشاشة6");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[14].Value = ((string)(هشاشة6));
+            }
+            this.Adapter.InsertCommand.Parameters[15].Value = ((bool)(تم));
+            if ((Action == null)) {
+                this.Adapter.InsertCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[16].Value = ((string)(Action));
+            }
+            if ((الجوال == null)) {
+                throw new global::System.ArgumentNullException("الجوال");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[17].Value = ((string)(الجوال));
+            }
+            if ((بطاقة_التموين == null)) {
+                throw new global::System.ArgumentNullException("بطاقة_التموين");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[18].Value = ((string)(بطاقة_التموين));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, false)]
         public virtual int DeleteIDP(string MemberID) {
             global::System.Data.OleDb.OleDbCommand command = this.CommandCollection[1];
@@ -1764,7 +2003,9 @@ WHERE        (MemberID = ?) AND (Family LIKE '*' & ? & '*') AND (Fname LIKE '*' 
                     bool IsExported, 
                     string Vul4, 
                     string Vul5, 
-                    string Vul6) {
+                    string Vul6, 
+                    string UNCard, 
+                    string Mobile) {
             global::System.Data.OleDb.OleDbCommand command = this.CommandCollection[4];
             if ((HoFID == null)) {
                 command.Parameters[0].Value = global::System.DBNull.Value;
@@ -1863,6 +2104,18 @@ WHERE        (MemberID = ?) AND (Family LIKE '*' & ? & '*') AND (Fname LIKE '*' 
             else {
                 command.Parameters[16].Value = ((string)(Vul6));
             }
+            if ((UNCard == null)) {
+                command.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[17].Value = ((string)(UNCard));
+            }
+            if ((Mobile == null)) {
+                command.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[18].Value = ((string)(Mobile));
+            }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1919,7 +2172,7 @@ WHERE        (MemberID = ?) AND (Family LIKE '*' & ? & '*') AND (Fname LIKE '*' 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int UpdateIDP(string Fname, string Sname, string Tname, string Family, global::System.Nullable<global::System.DateTime> Birth, string Gender, string Vul1, string Vul2, string Vul3, string Action, string Original_MemberID) {
+        public virtual int UpdateIDP(string Fname, string Sname, string Tname, string Family, global::System.Nullable<global::System.DateTime> Birth, string Gender, string Vul1, string Vul2, string Vul3, string Vul4, string Vul5, string Vul6, string Action, string Original_MemberID) {
             global::System.Data.OleDb.OleDbCommand command = this.CommandCollection[6];
             if ((Fname == null)) {
                 command.Parameters[0].Value = global::System.DBNull.Value;
@@ -1975,17 +2228,35 @@ WHERE        (MemberID = ?) AND (Family LIKE '*' & ? & '*') AND (Fname LIKE '*' 
             else {
                 command.Parameters[8].Value = ((string)(Vul3));
             }
-            if ((Action == null)) {
+            if ((Vul4 == null)) {
                 command.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[9].Value = ((string)(Action));
+                command.Parameters[9].Value = ((string)(Vul4));
             }
-            if ((Original_MemberID == null)) {
+            if ((Vul5 == null)) {
                 command.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[10].Value = ((string)(Original_MemberID));
+                command.Parameters[10].Value = ((string)(Vul5));
+            }
+            if ((Vul6 == null)) {
+                command.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[11].Value = ((string)(Vul6));
+            }
+            if ((Action == null)) {
+                command.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[12].Value = ((string)(Action));
+            }
+            if ((Original_MemberID == null)) {
+                command.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[13].Value = ((string)(Original_MemberID));
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 

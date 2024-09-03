@@ -122,7 +122,23 @@ namespace IDPSFamiliesExcelReporter
                 dataGridViewRow.Cells[10].Value = false;
                 dataGridViewRow.Cells[11].Value = false;
                 dataGridViewRow.Cells[12].Value = false;
-                dataGridViewRow.Cells[15].Value = 0;
+
+				//dataGridViewRow.Cells["cPrgenant"].Value = false;
+				//dataGridViewRow.Cells["cSerious"].Value = false;
+				//dataGridViewRow.Cells["cPhysicalDis"].Value = false;
+				//dataGridViewRow.Cells["cVisualDis"].Value = false;
+				//dataGridViewRow.Cells["cHearingDis"].Value = false;
+				//dataGridViewRow.Cells["cIntellDis"].Value = false;
+				//dataGridViewRow.Cells["cFemale_HOF"].Value = false;
+				//dataGridViewRow.Cells["cU_Child_HOF"].Value = false;
+				//dataGridViewRow.Cells["cSepChild"].Value = false;
+				//dataGridViewRow.Cells["cOlderPer"].Value = false;
+				//dataGridViewRow.Cells["cChild_HOF"].Value = false;
+
+
+
+
+				dataGridViewRow.Cells[15].Value = 0;
                 dataGridViewRow.Cells[16].Value = "";
                 dataGridViewRow.Cells[18].Value = "";
                 dataGridViewRow.Cells[19].Value = "";
@@ -146,10 +162,11 @@ namespace IDPSFamiliesExcelReporter
                     }
                     else
                     {
-                        
                         dataGridViewRow.Cells[1].Value = Options.WIFE;
-                        
                     }
+
+                    // If The Previous Row Is Empty Do nothing
+                    // You Must fill up the previous rows before you add new Memeber
                     String value = gvIDPOperation.Rows[rows_count - 1].Cells[0].Value.ToString();
                     if (value != "")
                     {
@@ -159,6 +176,56 @@ namespace IDPSFamiliesExcelReporter
                         gvIDPOperation.Rows[gvIDPOperation.Rows.Count-1].Cells[0].Selected = true;
                     }
                 }
+            }
+
+
+
+            if (e.KeyCode == Keys.Add||e.KeyCode==Keys.Space)
+            {
+                
+                if (gvIDPOperation.Rows.Count > 0)
+                {
+                    // End Edit To Add New Wife
+                    gvIDPOperation.EndEdit();
+
+					gvIDPOperation.Rows[gvIDPOperation.Rows.Count - 1].Cells[0].Selected = true;
+					DataGridViewRow dataGridViewRow = new DataGridViewRow();
+					dataGridViewRow.CreateCells(gvIDPOperation);
+					dataGridViewRow.Cells[0].Value = "";
+					dataGridViewRow.Cells[2].Value = false;
+					dataGridViewRow.Cells[3].Value = false;
+					dataGridViewRow.Cells[4].Value = false;
+					dataGridViewRow.Cells[5].Value = false;
+					dataGridViewRow.Cells[6].Value = false;
+					dataGridViewRow.Cells[7].Value = false;
+					dataGridViewRow.Cells[8].Value = false;
+					dataGridViewRow.Cells[9].Value = false;
+					dataGridViewRow.Cells[10].Value = false;
+					dataGridViewRow.Cells[11].Value = false;
+					dataGridViewRow.Cells[12].Value = false;
+					dataGridViewRow.Cells[15].Value = 0;
+					dataGridViewRow.Cells[16].Value = "";
+					dataGridViewRow.Cells[18].Value = "";
+					dataGridViewRow.Cells[19].Value = "";
+					dataGridViewRow.Cells[20].Value = "";
+					dataGridViewRow.Cells[21].Value = "";
+					dataGridViewRow.Cells[22].Value = "";
+					dataGridViewRow.Cells[23].Value = "";
+
+					dataGridViewRow.Cells[1].Value = Options.WIFE;
+
+					int rows_count = gvIDPOperation.Rows.Count;
+					// If The Previous Row Is Empty Do nothing
+					// You Must fill up the previous rows before you add new Memeber
+					String value = gvIDPOperation.Rows[rows_count - 1].Cells[0].Value.ToString();
+					if (value != "")
+					{
+						gvIDPOperation.Rows.Add(dataGridViewRow);
+
+						// select the last row - focus on it.
+						gvIDPOperation.Rows[gvIDPOperation.Rows.Count - 1].Cells[0].Selected = true;
+					}
+				}
             }
 
             if (e.KeyCode == Keys.Subtract)
@@ -183,18 +250,31 @@ namespace IDPSFamiliesExcelReporter
             FamiliesShelterDataSetTableAdapters.DataTableAdapter adapter = 
                 new FamiliesShelterDataSetTableAdapters.DataTableAdapter();
 
-            for (int i = 0; i < gvIDPOperation.Rows.Count; i++)
+			String Mobile = "";
+			String UnCard = "";
+			if (cbYes.Checked)
+			{
+				MobileUNCardID form = new MobileUNCardID();
+				form.ShowDialog(this);
+
+				Mobile = form.MobileNumber;
+				UnCard = form.UnCard;
+				//MessageBox.Show(Mobile + " ; " + UnCard);
+			}
+
+
+			for (int i = 0; i < gvIDPOperation.Rows.Count; i++)
             {
                 int state = Convert.ToInt32(gvIDPOperation.Rows[i].Cells[15].Value);
                 if (state == 1)
                 {
                     String HOFID = lbHOFIdentity.Text;
                     String MemberID = gvIDPOperation.Rows[i].Cells[0].Value.ToString();
-                    String Fname = gvIDPOperation.Rows[i].Cells[18].Value.ToString();
-                    String Sname = gvIDPOperation.Rows[i].Cells[19].Value.ToString();
-                    String Tname = gvIDPOperation.Rows[i].Cells[20].Value.ToString();
-                    String Family = gvIDPOperation.Rows[i].Cells[21].Value.ToString();
-                    String Gender = gvIDPOperation.Rows[i].Cells[22].Value.ToString() == "1" ? Options.Male : Options.Female;
+                    String Fname = gvIDPOperation.Rows[i].Cells["cFName"].Value.ToString();
+                    String Sname = gvIDPOperation.Rows[i].Cells["cSName"].Value.ToString();
+                    String Tname = gvIDPOperation.Rows[i].Cells["cTName"].Value.ToString();
+                    String Family = gvIDPOperation.Rows[i].Cells["cFamilyName"].Value.ToString();
+                    String Gender = gvIDPOperation.Rows[i].Cells["cGender"].Value.ToString() == "1" ? Options.Male : Options.Female;
                     String Vul1 = Convert.ToBoolean(gvIDPOperation.Rows[i].Cells[2].Value) ? Options.Pregnant_woman : "";
                     String Vul2 = Convert.ToBoolean(gvIDPOperation.Rows[i].Cells[3].Value) ? Options.Serious_medical : "";
                     String Vul3 = Convert.ToBoolean(gvIDPOperation.Rows[i].Cells[4].Value) ? Options.Physical_disability : "";
@@ -257,8 +337,32 @@ namespace IDPSFamiliesExcelReporter
                             }
                         }
 
-                        adapter.Insert1(HOFID, Fname, Sname, Tname, Family, MemberID, Birth, Gender, RelationType, disabilities[0].ToString(), disabilities[1].ToString(), disabilities[2].ToString(), Options.ADD, false, disabilities[3].ToString(), disabilities[4].ToString(), disabilities[5].ToString());
-                    }
+
+
+                        
+
+                        adapter.Insert(HOFID,
+                            Fname,
+                            Sname,
+                            Tname,
+							Family,
+                            MemberID,
+                            Birth,
+                            Gender,
+                            RelationType,
+                            disabilities[0].ToString(),
+                            disabilities[1].ToString(),
+                            disabilities[2].ToString(),
+                            disabilities[3].ToString(),
+                            disabilities[4].ToString(),
+                            disabilities[5].ToString(),
+                            false,
+                            Options.ADD,
+                            Mobile,
+                            UnCard
+                            );
+						
+					}
                     else
                     {
                         String Name = Fname + " " + Sname + " " + Tname + " " + Family;

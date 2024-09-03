@@ -98,8 +98,32 @@ namespace IDPSFamiliesExcelReporter
                 DataGridViewRow dataGridViewRow = gvSearch.Rows[e.RowIndex];
                 String Identity = dataGridViewRow.Cells[0].Value.ToString();
 
+				String Relation = dataGridViewRow.Cells[8].Value.ToString();
 
-                UpdateIDPForm form = new UpdateIDPForm();
+				UpdateIDPForm form = new UpdateIDPForm();
+
+				if (Relation == "ابن" || Relation == "ابنه")
+                {
+					form.txtFamiliyName.ReadOnly = true;
+					form.txtTname.ReadOnly = true;
+					form.txtSname.ReadOnly = true;
+				}
+				else if (Relation == "نفسه (رب الاسرة)")
+				{
+                    form.txtFname.ReadOnly = true;
+					form.txtFamiliyName.ReadOnly = true;
+					form.txtTname.ReadOnly = true;
+					form.txtSname.ReadOnly = true;
+				}
+				else
+                {
+					form.txtFamiliyName.ReadOnly = false;
+					form.txtTname.ReadOnly = false;
+					form.txtSname.ReadOnly = false;
+				}
+
+
+                
                 UpdateIDPForm.MemberID = dataGridViewRow.Cells[5].Value.ToString(); ;
                 UpdateIDPForm.Fname = dataGridViewRow.Cells[1].Value.ToString();
                 UpdateIDPForm.Sname = dataGridViewRow.Cells[2].Value.ToString(); ;
@@ -107,11 +131,23 @@ namespace IDPSFamiliesExcelReporter
                 UpdateIDPForm.FamilyName = dataGridViewRow.Cells[4].Value.ToString(); ;
                 UpdateIDPForm.Gender = dataGridViewRow.Cells[7].Value.ToString();
                 UpdateIDPForm.DOB = Convert.ToDateTime(dataGridViewRow.Cells[6].Value.ToString());
+
                 UpdateIDPForm.Vul1 = dataGridViewRow.Cells[9].Value.ToString();
                 UpdateIDPForm.Vul2 = dataGridViewRow.Cells[10].Value.ToString();
                 UpdateIDPForm.Vul3 = dataGridViewRow.Cells[11].Value.ToString();
-                UpdateIDPForm.IsExportedToExcel = Convert.ToBoolean(dataGridViewRow.Cells[15].Value.ToString());
-                UpdateIDPForm.Action = dataGridViewRow.Cells[13].Value.ToString();
+				UpdateIDPForm.Vul4 = dataGridViewRow.Cells[12].Value.ToString();
+				UpdateIDPForm.Vul5 = dataGridViewRow.Cells[13].Value.ToString();
+				UpdateIDPForm.Vul6 = dataGridViewRow.Cells[14].Value.ToString();
+
+    //            MessageBox.Show(UpdateIDPForm.Vul1);
+				//MessageBox.Show(UpdateIDPForm.Vul2);
+				//MessageBox.Show(UpdateIDPForm.Vul3);
+				//MessageBox.Show(UpdateIDPForm.Vul4);
+				//MessageBox.Show(UpdateIDPForm.Vul5);
+				//MessageBox.Show(UpdateIDPForm.Vul6);
+
+				UpdateIDPForm.IsExportedToExcel = Convert.ToBoolean(dataGridViewRow.Cells[15].Value.ToString());
+                UpdateIDPForm.Action = dataGridViewRow.Cells[16].Value.ToString();
 
                 form.ShowDialog();
 
@@ -130,86 +166,91 @@ namespace IDPSFamiliesExcelReporter
             {
                 if (gvSearch.Rows.Count > 0)
                 {
-                    if (gvSearch.SelectedRows.Count > 0)
+                    DialogResult res=MessageBox.Show("هل تريد حذف هذا الفرد ؟","",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+                    if (res == DialogResult.Yes)
                     {
-                        DataGridViewRow dataGridViewRow = gvSearch.SelectedRows[0];
-                        String Identity = dataGridViewRow.Cells[5].Value.ToString();
+						if (gvSearch.SelectedRows.Count > 0)
+						{
+							DataGridViewRow dataGridViewRow = gvSearch.SelectedRows[0];
+							String Identity = dataGridViewRow.Cells[5].Value.ToString();
 
-                        FamiliesShelterDataSetTableAdapters.DataTableAdapter qAdapter = new FamiliesShelterDataSetTableAdapters.DataTableAdapter();
-                        
-                        bool IsExportedToExcel=Convert.ToBoolean(dataGridViewRow.Cells[15].Value.ToString());
+							FamiliesShelterDataSetTableAdapters.DataTableAdapter qAdapter = new FamiliesShelterDataSetTableAdapters.DataTableAdapter();
 
-                        String CurrentAction = dataGridViewRow.Cells[13].Value.ToString();
-                        String Action = CurrentAction;
+							bool IsExportedToExcel = Convert.ToBoolean(dataGridViewRow.Cells[15].Value.ToString());
 
-                        if (IsExportedToExcel)
-                        {
-                            if (CurrentAction == "إضافة")
-                            {
-                                //Action = "حذف";
-                                qAdapter.UpdateAction(Options.DELETE, Identity);
-                                Info();
-                                BindGridView();
-                            }
-                            else if (CurrentAction == "تعديل")
-                            {
-                                //Action = "حذف";
-                                qAdapter.UpdateAction(Options.DELETE, Identity);
-                                Info();
-                                BindGridView();
-                            }
-                            else
-                            {
-                                //Do Nothing
-                                
-                            }
-                        }
-                        else
-                        {
-                            if (CurrentAction == "إضافة")
-                            {
-                                // Remove Completely
-                                DialogResult dialogResult = MessageBox.Show(this, "ستقوم بحذف النازح بشكل نهائي هل أنت متاكد ؟", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+							String CurrentAction = dataGridViewRow.Cells[16].Value.ToString();
+							String Action = CurrentAction;
 
-                                if (dialogResult == DialogResult.Yes)
-                                {
-                                    qAdapter.DeleteIDP(Identity);
-                                    Info();
-                                    BindGridView();
-                                }
+							if (IsExportedToExcel)
+							{
+								if (CurrentAction == "إضافة")
+								{
+									//Action = "حذف";
+									qAdapter.UpdateAction(Options.DELETE, Identity);
+									Info();
+									BindGridView();
+								}
+								else if (CurrentAction == "تعديل")
+								{
+									//Action = "حذف";
+									qAdapter.UpdateAction(Options.DELETE, Identity);
+									Info();
+									BindGridView();
+								}
+								else
+								{
+									//Do Nothing
 
-                            }
-                            else if (CurrentAction == "تعديل")
-                            {
-                                qAdapter.UpdateAction(Options.DELETE, Identity);
-                                Info();
-                                BindGridView();
-                            }
-                            else
-                            {
-                                //Do Nothing
+								}
+							}
+							else
+							{
+								if (CurrentAction == "إضافة")
+								{
+									// Remove Completely
+									DialogResult dialogResult = MessageBox.Show(this, "ستقوم بحذف النازح بشكل نهائي هل أنت متاكد ؟", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                            }
-                        }
+									if (dialogResult == DialogResult.Yes)
+									{
+										qAdapter.DeleteIDP(Identity);
+										Info();
+										BindGridView();
+									}
 
-                        //if (dataGridViewRow.Cells[13].Value.ToString() == "إضافة")
-                        //{
-                        //    //DialogResult dialogResult = MessageBox.Show(this,"ستقوم بحذف النازح بشكل نهائي هل أنت متاكد ؟","",MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+								}
+								else if (CurrentAction == "تعديل")
+								{
+									qAdapter.UpdateAction(Options.DELETE, Identity);
+									Info();
+									BindGridView();
+								}
+								else
+								{
+									//Do Nothing
 
-                        //    //if (dialogResult == DialogResult.Yes)
-                        //    //{
-                        //    //    qAdapter.DeleteIDP(Identity);
-                        //    //    Info();
-                        //    //    BindGridView();
-                        //    //}
-                        //}
-                        //else
-                        //{
-                        //    //qAdapter.UpdateAction(Options.DELETE, Identity);
-                        //    //Info();
-                        //    //BindGridView();
-                        //}
-                    }
+								}
+							}
+
+							//if (dataGridViewRow.Cells[13].Value.ToString() == "إضافة")
+							//{
+							//    //DialogResult dialogResult = MessageBox.Show(this,"ستقوم بحذف النازح بشكل نهائي هل أنت متاكد ؟","",MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+							//    //if (dialogResult == DialogResult.Yes)
+							//    //{
+							//    //    qAdapter.DeleteIDP(Identity);
+							//    //    Info();
+							//    //    BindGridView();
+							//    //}
+							//}
+							//else
+							//{
+							//    //qAdapter.UpdateAction(Options.DELETE, Identity);
+							//    //Info();
+							//    //BindGridView();
+							//}
+						}
+					}
+                    
 
                 }
             }

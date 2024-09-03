@@ -129,20 +129,26 @@ namespace IDPSFamiliesExcelReporter
                 HearingDis = Convert.ToBoolean(gvVul.Rows[0].Cells[4].Value);
                 IntellDis = Convert.ToBoolean(gvVul.Rows[0].Cells[5].Value);
                 Female_HOF = Convert.ToBoolean(gvVul.Rows[0].Cells[6].Value);
-                SepChild = Convert.ToBoolean(gvVul.Rows[0].Cells[7].Value);
-                OlderPer = Convert.ToBoolean(gvVul.Rows[0].Cells[8].Value);
-                Child_HOF = Convert.ToBoolean(gvVul.Rows[0].Cells[9].Value);
+				U_Child_HOF = Convert.ToBoolean(gvVul.Rows[0].Cells[7].Value);
+				SepChild = Convert.ToBoolean(gvVul.Rows[0].Cells[8].Value);
+				OlderPer = Convert.ToBoolean(gvVul.Rows[0].Cells[9].Value);
+				Child_HOF = Convert.ToBoolean(gvVul.Rows[0].Cells[10].Value);
 
-                gvIDPOperation.Rows[RowIndex].Cells["cPrgenant"].Value = Prgenant;
+
+				
+
+				gvIDPOperation.Rows[RowIndex].Cells["cPrgenant"].Value = Prgenant;
                 gvIDPOperation.Rows[RowIndex].Cells["cSerious"].Value = Serious;
                 gvIDPOperation.Rows[RowIndex].Cells["cPhysicalDis"].Value = PhysicalDis;
                 gvIDPOperation.Rows[RowIndex].Cells["cVisualDis"].Value = VisualDis;
                 gvIDPOperation.Rows[RowIndex].Cells["cHearingDis"].Value = HearingDis;
                 gvIDPOperation.Rows[RowIndex].Cells["cIntellDis"].Value = IntellDis;
                 gvIDPOperation.Rows[RowIndex].Cells["cFemale_HOF"].Value = Female_HOF;
-                gvIDPOperation.Rows[RowIndex].Cells["cSepChild"].Value = SepChild;
+				gvIDPOperation.Rows[RowIndex].Cells["cU_Child_HOF"].Value = U_Child_HOF;
+				gvIDPOperation.Rows[RowIndex].Cells["cSepChild"].Value = SepChild;
                 gvIDPOperation.Rows[RowIndex].Cells["cOlderPer"].Value = OlderPer;
                 gvIDPOperation.Rows[RowIndex].Cells["cChild_HOF"].Value = Child_HOF;
+
                 gvIDPOperation.Rows[RowIndex].Cells[0].Value = Identity;
                 gvIDPOperation.Rows[RowIndex].Cells[18].Value = FName;
                 gvIDPOperation.Rows[RowIndex].Cells[19].Value = SName;
