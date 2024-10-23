@@ -244,6 +244,7 @@ namespace IDPSFamiliesExcelReporter
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            
             FamiliesShelterDataSetTableAdapters.QueriesTableAdapter qAdapter = 
                 new FamiliesShelterDataSetTableAdapters.QueriesTableAdapter();
 
@@ -254,12 +255,16 @@ namespace IDPSFamiliesExcelReporter
 			String UnCard = "";
 			if (cbYes.Checked)
 			{
-				MobileUNCardID form = new MobileUNCardID();
-				form.ShowDialog(this);
+				if (gvIDPOperation.Rows.Count > 0)
+				{
+					MobileUNCardID form = new MobileUNCardID();
+					form.ShowDialog(this);
 
-				Mobile = form.MobileNumber;
-				UnCard = form.UnCard;
-				//MessageBox.Show(Mobile + " ; " + UnCard);
+					Mobile = form.MobileNumber;
+					UnCard = form.UnCard;
+					//MessageBox.Show(Mobile + " ; " + UnCard);
+				}
+
 			}
 
 
@@ -341,7 +346,7 @@ namespace IDPSFamiliesExcelReporter
 
                         
 
-                        adapter.Insert(HOFID,
+                        adapter.Insert1(HOFID,
                             Fname,
                             Sname,
                             Tname,
@@ -356,10 +361,11 @@ namespace IDPSFamiliesExcelReporter
                             disabilities[3].ToString(),
                             disabilities[4].ToString(),
                             disabilities[5].ToString(),
-                            false,
-                            Options.ADD,
-                            Mobile,
-                            UnCard
+							Options.ADD,
+							false,
+							UnCard,
+							Mobile,
+                            DateTime.Now
                             );
 						
 					}
@@ -735,6 +741,18 @@ namespace IDPSFamiliesExcelReporter
 		private void gvIDPOperation_CellContentClick(object sender, DataGridViewCellEventArgs e)
 		{
 
+		}
+
+		private void btnDataGaza_Click(object sender, EventArgs e)
+		{
+            if (!SearchFormGaza.activate)
+            {
+				SearchFormGaza.activate = true;
+				SearchFormGaza form = new SearchFormGaza();
+
+				form.Show();
+			}
+            
 		}
 	}
 }

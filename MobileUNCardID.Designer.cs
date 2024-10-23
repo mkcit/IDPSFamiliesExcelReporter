@@ -38,7 +38,7 @@
 			// 
 			// button1
 			// 
-			this.button1.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.button1.Font = new System.Drawing.Font("AdvertisingLight", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.button1.Location = new System.Drawing.Point(124, 138);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(119, 47);
@@ -49,7 +49,7 @@
 			// 
 			// button2
 			// 
-			this.button2.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.button2.Font = new System.Drawing.Font("AdvertisingLight", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.button2.Location = new System.Drawing.Point(249, 138);
 			this.button2.Name = "button2";
 			this.button2.Size = new System.Drawing.Size(119, 47);
@@ -61,20 +61,22 @@
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.Location = new System.Drawing.Point(32, 27);
+			this.label1.Font = new System.Drawing.Font("AdvertisingLight", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.label1.ForeColor = System.Drawing.SystemColors.Control;
+			this.label1.Location = new System.Drawing.Point(42, 24);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(103, 25);
+			this.label1.Size = new System.Drawing.Size(92, 32);
 			this.label1.TabIndex = 2;
 			this.label1.Text = "رقم الجوال";
 			// 
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label2.Location = new System.Drawing.Point(32, 81);
+			this.label2.Font = new System.Drawing.Font("AdvertisingLight", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.label2.ForeColor = System.Drawing.SystemColors.Control;
+			this.label2.Location = new System.Drawing.Point(47, 81);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(102, 25);
+			this.label2.Size = new System.Drawing.Size(87, 32);
 			this.label2.TabIndex = 3;
 			this.label2.Text = "كرت المؤن";
 			// 
@@ -98,6 +100,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.ClientSize = new System.Drawing.Size(456, 216);
 			this.Controls.Add(this.txtUNCard);
 			this.Controls.Add(this.txtMobile);

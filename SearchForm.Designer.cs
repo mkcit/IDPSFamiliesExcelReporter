@@ -47,7 +47,7 @@
 			this.gvSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.gvSearch.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+			this.gvSearch.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
 			this.gvSearch.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
 			this.gvSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.gvSearch.Location = new System.Drawing.Point(12, 93);
@@ -66,6 +66,7 @@
 			// 
 			this.label1.AutoSize = true;
 			this.label1.Font = new System.Drawing.Font("AdvertisingBold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.label1.ForeColor = System.Drawing.SystemColors.Control;
 			this.label1.Location = new System.Drawing.Point(11, 13);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(101, 29);
@@ -86,6 +87,7 @@
 			// 
 			this.label2.AutoSize = true;
 			this.label2.Font = new System.Drawing.Font("AdvertisingBold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.label2.ForeColor = System.Drawing.SystemColors.Control;
 			this.label2.Location = new System.Drawing.Point(12, 53);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(101, 29);
@@ -105,6 +107,7 @@
 			// 
 			this.label3.AutoSize = true;
 			this.label3.Font = new System.Drawing.Font("AdvertisingBold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.label3.ForeColor = System.Drawing.SystemColors.Control;
 			this.label3.Location = new System.Drawing.Point(265, 53);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(87, 29);
@@ -124,6 +127,7 @@
 			// 
 			this.label5.AutoSize = true;
 			this.label5.Font = new System.Drawing.Font("AdvertisingBold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.label5.ForeColor = System.Drawing.SystemColors.Control;
 			this.label5.Location = new System.Drawing.Point(504, 53);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(69, 29);
@@ -143,6 +147,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.ClientSize = new System.Drawing.Size(1289, 512);
 			this.Controls.Add(this.label5);
 			this.Controls.Add(this.txtFamiliyName);

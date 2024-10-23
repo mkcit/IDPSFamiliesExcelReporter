@@ -1,15 +1,18 @@
-﻿using OfficeOpenXml;
+﻿using IDPSFamiliesExcelReporter.FamiliesShelterDataSetTableAdapters;
+using OfficeOpenXml;
 using System;
+using System.Data.Common;
 using System.IO;
 using System.Windows.Forms;
+using static IDPSFamiliesExcelReporter.FamiliesShelterDataSet;
 
 namespace IDPSFamiliesExcelReporter
 {
 	public partial class ExportToExcelForm : Form
 	{
 
-		private FamiliesShelterDataSet.DataDataTable dt;
-		private FamiliesShelterDataSetTableAdapters.DataTableAdapter tAdapter;
+		private DataDataTable dt;
+		private DataTableAdapter adapter;
 		public ExportToExcelForm()
 		{
 			InitializeComponent();
@@ -17,14 +20,10 @@ namespace IDPSFamiliesExcelReporter
 
 		private void ExportToExcel_Load(object sender, EventArgs e)
 		{
+			 dt = new DataDataTable();
+			 adapter = new DataTableAdapter();
 
-			dt = new FamiliesShelterDataSet.DataDataTable();
-
-			tAdapter = new FamiliesShelterDataSetTableAdapters.DataTableAdapter();
-
-			//dt = tAdapter.GetNotExportedData();
-
-			tAdapter.FillBy(dt);
+			dt = adapter.GetNotExportedData();
 			gvExportToExcel.DataSource = dt;
 		}
 		private void Info(String filename)
@@ -59,7 +58,7 @@ namespace IDPSFamiliesExcelReporter
 
 
 
-					if (dt != null && tAdapter != null)
+					if (dt != null && adapter != null)
 					{
 						for (int i = 1; i <= dt.Rows.Count; i++)
 						{
@@ -81,21 +80,34 @@ namespace IDPSFamiliesExcelReporter
 							worksheet.Cells[i, 8].Value = dt.Rows[i - 1][7];//Gender
 							//MessageBox.Show(dt.Rows[i - 1][7].ToString());
 							worksheet.Cells[i, 9].Value = dt.Rows[i - 1][8];//Rel
-							//MessageBox.Show(dt.Rows[i - 1][8].ToString());
-							worksheet.Cells[i, 10].Value = dt.Rows[i - 1][9];//Vul
-							 //MessageBox.Show(dt.Rows[i - 1][9].ToString());
-							worksheet.Cells[i, 11].Value = dt.Rows[i - 1][10];//Vul
-							//MessageBox.Show(dt.Rows[i - 1][10].ToString());
-							worksheet.Cells[i, 12].Value = dt.Rows[i - 1][11];//Vul
-							//MessageBox.Show(dt.Rows[i - 1][11].ToString());
-							worksheet.Cells[i, 13].Value = dt.Rows[i - 1][12];//Vul
-							//MessageBox.Show(dt.Rows[i - 1][14].ToString());
-							worksheet.Cells[i, 14].Value = dt.Rows[i - 1][13];//Vul
-							//MessageBox.Show(dt.Rows[i - 1][15].ToString());
-							worksheet.Cells[i, 15].Value = dt.Rows[i - 1][14];//Vul
-							//MessageBox.Show(dt.Rows[i - 1][16].ToString());
-							//worksheet.Cells[i, 16].Value = dt.Rows[i - 1][15];//تم// تم
-							//MessageBox.Show(dt.Rows[i - 1][16].ToString());
+																			//MessageBox.Show(dt.Rows[i - 1][8].ToString());
+
+
+							worksheet.Cells[i, 10].Value = null;
+							worksheet.Cells[i, 10].Value = Convert.ToString(dt.Rows[i - 1][9]);//Vul
+																							   //MessageBox.Show(worksheet.Cells[i, 10].Value.ToString().Length.ToString());
+																							   //MessageBox.Show(dt.Rows[i - 1][9].ToString());
+							worksheet.Cells[i, 11].Value = null;
+							worksheet.Cells[i, 11].Value = Convert.ToString(dt.Rows[i - 1][10]);//Vul
+																								//MessageBox.Show(worksheet.Cells[i, 11].Value.ToString().Length.ToString());
+																								//MessageBox.Show(dt.Rows[i - 1][10].ToString());
+							worksheet.Cells[i, 12].Value = null;
+							worksheet.Cells[i, 12].Value = Convert.ToString(dt.Rows[i - 1][11]);//Vul
+																								//MessageBox.Show(worksheet.Cells[i, 12].Value.ToString().Length.ToString());
+																								//MessageBox.Show(dt.Rows[i - 1][11].ToString());
+							worksheet.Cells[i, 13].Value = null;
+							worksheet.Cells[i, 13].Value = Convert.ToString(dt.Rows[i - 1][12]);//Vul
+																								//MessageBox.Show(worksheet.Cells[i, 13].Value.ToString().Length.ToString());
+																								//MessageBox.Show(dt.Rows[i - 1][14].ToString());
+							worksheet.Cells[i, 14].Value = null;
+							worksheet.Cells[i, 14].Value = Convert.ToString(dt.Rows[i - 1][13]);//Vul
+																								//MessageBox.Show(worksheet.Cells[i, 14].Value.ToString().Length.ToString());
+																								//MessageBox.Show(dt.Rows[i - 1][15].ToString());
+							worksheet.Cells[i, 15].Value = null;
+							worksheet.Cells[i, 15].Value = Convert.ToString(dt.Rows[i - 1][14]);//Vul
+																												 //MessageBox.Show(dt.Rows[i - 1][16].ToString());
+																												 //worksheet.Cells[i, 16].Value = dt.Rows[i - 1][15];//تم// تم
+																												 //MessageBox.Show(dt.Rows[i - 1][16].ToString());
 							worksheet.Cells[i, 16].Value = dt.Rows[i - 1][16];//ACTION
 							//MessageBox.Show(dt.Rows[i - 1][16].ToString());
 							worksheet.Cells[i, 17].Value = dt.Rows[i - 1][17];//mOBILE
@@ -122,7 +134,7 @@ namespace IDPSFamiliesExcelReporter
 							//MessageBox.Show(dt.Rows[i - 1][16].ToString());
 
 							String MemberID = dt.Rows[i - 1][5].ToString();
-							tAdapter.UpdateIsExported(true, MemberID);
+							adapter.UpdateIsExported(true, MemberID);
 
 						}
 
@@ -151,7 +163,7 @@ namespace IDPSFamiliesExcelReporter
 
 		private void btnClose_Click(object sender, EventArgs e)
 		{
-			Dispose();
+			Close();
 		}
 
 		private void ExportToExcelForm_KeyDown(object sender, KeyEventArgs e)

@@ -26,6 +26,8 @@ namespace IDPSFamiliesExcelReporter {
         
         private DataDataTable tableData;
         
+        private Data1DataTable tableData1;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -57,6 +59,9 @@ namespace IDPSFamiliesExcelReporter {
                 if ((ds.Tables["Data"] != null)) {
                     base.Tables.Add(new DataDataTable(ds.Tables["Data"]));
                 }
+                if ((ds.Tables["Data1"] != null)) {
+                    base.Tables.Add(new Data1DataTable(ds.Tables["Data1"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -82,6 +87,16 @@ namespace IDPSFamiliesExcelReporter {
         public DataDataTable Data {
             get {
                 return this.tableData;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public Data1DataTable Data1 {
+            get {
+                return this.tableData1;
             }
         }
         
@@ -155,6 +170,9 @@ namespace IDPSFamiliesExcelReporter {
                 if ((ds.Tables["Data"] != null)) {
                     base.Tables.Add(new DataDataTable(ds.Tables["Data"]));
                 }
+                if ((ds.Tables["Data1"] != null)) {
+                    base.Tables.Add(new Data1DataTable(ds.Tables["Data1"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -194,6 +212,12 @@ namespace IDPSFamiliesExcelReporter {
                     this.tableData.InitVars();
                 }
             }
+            this.tableData1 = ((Data1DataTable)(base.Tables["Data1"]));
+            if ((initTable == true)) {
+                if ((this.tableData1 != null)) {
+                    this.tableData1.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -206,11 +230,19 @@ namespace IDPSFamiliesExcelReporter {
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableData = new DataDataTable();
             base.Tables.Add(this.tableData);
+            this.tableData1 = new Data1DataTable();
+            base.Tables.Add(this.tableData1);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private bool ShouldSerializeData() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private bool ShouldSerializeData1() {
             return false;
         }
         
@@ -272,6 +304,9 @@ namespace IDPSFamiliesExcelReporter {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void DataRowChangeEventHandler(object sender, DataRowChangeEvent e);
         
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public delegate void Data1RowChangeEventHandler(object sender, Data1RowChangeEvent e);
+        
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
@@ -316,6 +351,8 @@ namespace IDPSFamiliesExcelReporter {
             private global::System.Data.DataColumn columnالجوال;
             
             private global::System.Data.DataColumn columnبطاقة_التموين;
+            
+            private global::System.Data.DataColumn columnتاريخ_الاجراء;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -504,6 +541,14 @@ namespace IDPSFamiliesExcelReporter {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn تاريخ_الاجراءColumn {
+                get {
+                    return this.columnتاريخ_الاجراء;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -558,7 +603,8 @@ namespace IDPSFamiliesExcelReporter {
                         bool تم, 
                         string Action, 
                         string الجوال, 
-                        string بطاقة_التموين) {
+                        string بطاقة_التموين, 
+                        System.DateTime تاريخ_الاجراء) {
                 DataRow rowDataRow = ((DataRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         هوية_رب_الاسرة,
@@ -579,7 +625,8 @@ namespace IDPSFamiliesExcelReporter {
                         تم,
                         Action,
                         الجوال,
-                        بطاقة_التموين};
+                        بطاقة_التموين,
+                        تاريخ_الاجراء};
                 rowDataRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataRow);
                 return rowDataRow;
@@ -621,6 +668,7 @@ namespace IDPSFamiliesExcelReporter {
                 this.columnAction = base.Columns["Action"];
                 this.columnالجوال = base.Columns["الجوال"];
                 this.columnبطاقة_التموين = base.Columns["بطاقة التموين"];
+                this.columnتاريخ_الاجراء = base.Columns["تاريخ الاجراء"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -664,6 +712,8 @@ namespace IDPSFamiliesExcelReporter {
                 base.Columns.Add(this.columnالجوال);
                 this.columnبطاقة_التموين = new global::System.Data.DataColumn("بطاقة التموين", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnبطاقة_التموين);
+                this.columnتاريخ_الاجراء = new global::System.Data.DataColumn("تاريخ الاجراء", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnتاريخ_الاجراء);
                 this.columnهوية_رب_الاسرة.MaxLength = 255;
                 this.columnالاسم.MaxLength = 255;
                 this.columnالاب.MaxLength = 255;
@@ -767,6 +817,286 @@ namespace IDPSFamiliesExcelReporter {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "DataDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class Data1DataTable : global::System.Data.TypedTableBase<Data1Row> {
+            
+            private global::System.Data.DataColumn columnهوية_الفرد;
+            
+            private global::System.Data.DataColumn columnاسم_الفرد;
+            
+            private global::System.Data.DataColumn columnهوية_رب_الأسرة;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public Data1DataTable() {
+                this.TableName = "Data1";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal Data1DataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected Data1DataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn هوية_الفردColumn {
+                get {
+                    return this.columnهوية_الفرد;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn اسم_الفردColumn {
+                get {
+                    return this.columnاسم_الفرد;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn هوية_رب_الأسرةColumn {
+                get {
+                    return this.columnهوية_رب_الأسرة;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public Data1Row this[int index] {
+                get {
+                    return ((Data1Row)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event Data1RowChangeEventHandler Data1RowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event Data1RowChangeEventHandler Data1RowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event Data1RowChangeEventHandler Data1RowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event Data1RowChangeEventHandler Data1RowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void AddData1Row(Data1Row row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public Data1Row AddData1Row(string هوية_الفرد, string اسم_الفرد, string هوية_رب_الأسرة) {
+                Data1Row rowData1Row = ((Data1Row)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        هوية_الفرد,
+                        اسم_الفرد,
+                        هوية_رب_الأسرة};
+                rowData1Row.ItemArray = columnValuesArray;
+                this.Rows.Add(rowData1Row);
+                return rowData1Row;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                Data1DataTable cln = ((Data1DataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new Data1DataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columnهوية_الفرد = base.Columns["هوية الفرد"];
+                this.columnاسم_الفرد = base.Columns["اسم الفرد"];
+                this.columnهوية_رب_الأسرة = base.Columns["هوية رب الأسرة"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columnهوية_الفرد = new global::System.Data.DataColumn("هوية الفرد", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnهوية_الفرد);
+                this.columnاسم_الفرد = new global::System.Data.DataColumn("اسم الفرد", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnاسم_الفرد);
+                this.columnهوية_رب_الأسرة = new global::System.Data.DataColumn("هوية رب الأسرة", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnهوية_رب_الأسرة);
+                this.columnهوية_الفرد.MaxLength = 255;
+                this.columnاسم_الفرد.ReadOnly = true;
+                this.columnاسم_الفرد.MaxLength = 536870910;
+                this.columnهوية_رب_الأسرة.Caption = "هوية رب الأسرى";
+                this.columnهوية_رب_الأسرة.MaxLength = 255;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public Data1Row NewData1Row() {
+                return ((Data1Row)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new Data1Row(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(Data1Row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.Data1RowChanged != null)) {
+                    this.Data1RowChanged(this, new Data1RowChangeEvent(((Data1Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.Data1RowChanging != null)) {
+                    this.Data1RowChanging(this, new Data1RowChangeEvent(((Data1Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.Data1RowDeleted != null)) {
+                    this.Data1RowDeleted(this, new Data1RowChangeEvent(((Data1Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.Data1RowDeleting != null)) {
+                    this.Data1RowDeleting(this, new Data1RowChangeEvent(((Data1Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void RemoveData1Row(Data1Row row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                FamiliesShelterDataSet ds = new FamiliesShelterDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "Data1DataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -1127,6 +1457,22 @@ namespace IDPSFamiliesExcelReporter {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime تاريخ_الاجراء {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableData.تاريخ_الاجراءColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'تاريخ الاجراء\' in table \'Data\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableData.تاريخ_الاجراءColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Isهوية_رب_الاسرةNull() {
                 return this.IsNull(this.tableData.هوية_رب_الاسرةColumn);
             }
@@ -1352,6 +1698,117 @@ namespace IDPSFamiliesExcelReporter {
             public void Setبطاقة_التموينNull() {
                 this[this.tableData.بطاقة_التموينColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isتاريخ_الاجراءNull() {
+                return this.IsNull(this.tableData.تاريخ_الاجراءColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setتاريخ_الاجراءNull() {
+                this[this.tableData.تاريخ_الاجراءColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class Data1Row : global::System.Data.DataRow {
+            
+            private Data1DataTable tableData1;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal Data1Row(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableData1 = ((Data1DataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string هوية_الفرد {
+                get {
+                    try {
+                        return ((string)(this[this.tableData1.هوية_الفردColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'هوية الفرد\' in table \'Data1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableData1.هوية_الفردColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string اسم_الفرد {
+                get {
+                    try {
+                        return ((string)(this[this.tableData1.اسم_الفردColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'اسم الفرد\' in table \'Data1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableData1.اسم_الفردColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string هوية_رب_الأسرة {
+                get {
+                    try {
+                        return ((string)(this[this.tableData1.هوية_رب_الأسرةColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'هوية رب الأسرة\' in table \'Data1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableData1.هوية_رب_الأسرةColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isهوية_الفردNull() {
+                return this.IsNull(this.tableData1.هوية_الفردColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setهوية_الفردNull() {
+                this[this.tableData1.هوية_الفردColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isاسم_الفردNull() {
+                return this.IsNull(this.tableData1.اسم_الفردColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setاسم_الفردNull() {
+                this[this.tableData1.اسم_الفردColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isهوية_رب_الأسرةNull() {
+                return this.IsNull(this.tableData1.هوية_رب_الأسرةColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setهوية_رب_الأسرةNull() {
+                this[this.tableData1.هوية_رب_الأسرةColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -1374,6 +1831,40 @@ namespace IDPSFamiliesExcelReporter {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public DataRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public class Data1RowChangeEvent : global::System.EventArgs {
+            
+            private Data1Row eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public Data1RowChangeEvent(Data1Row row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public Data1Row Row {
                 get {
                     return this.eventRow;
                 }
@@ -1532,10 +2023,11 @@ namespace IDPSFamiliesExcelReporter.FamiliesShelterDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Action", "Action");
             tableMapping.ColumnMappings.Add("الجوال", "الجوال");
             tableMapping.ColumnMappings.Add("بطاقة التموين", "بطاقة التموين");
+            tableMapping.ColumnMappings.Add("تاريخ الاجراء", "تاريخ الاجراء");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO `Data` (`HoFID`, `Fname`, `Sname`, `Tname`, `Family`, `MemberID`, `Birth`, `Gender`, `Relation`, `Vul1`, `Vul2`, `Vul3`, `Vul4`, `Vul5`, `Vul6`, `IsExported`, `Action`, `Mobile`, `UNCard`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO `Data` (`HoFID`, `Fname`, `Sname`, `Tname`, `Family`, `MemberID`, `Birth`, `Gender`, `Relation`, `Vul1`, `Vul2`, `Vul3`, `Vul4`, `Vul5`, `Vul6`, `IsExported`, `Action`, `Mobile`, `UNCard`, `RegDate`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("هوية_رب_الاسرة", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "هوية رب الاسرة", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("الاسم", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "الاسم", global::System.Data.DataRowVersion.Current, false, null));
@@ -1556,6 +2048,7 @@ namespace IDPSFamiliesExcelReporter.FamiliesShelterDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Action", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Action", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("الجوال", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "الجوال", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("بطاقة_التموين", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "بطاقة التموين", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("تاريخ_الاجراء", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "تاريخ الاجراء", global::System.Data.DataRowVersion.Current, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1572,7 +2065,7 @@ namespace IDPSFamiliesExcelReporter.FamiliesShelterDataSetTableAdapters {
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        HoFID AS [هوية رب الاسرة], Fname AS الاسم, Sname AS الاب, Tname AS الجد, Family AS العائلة, MemberID AS [هوية الفرد], Birth AS الميلاد, Gender AS التوع, Relation AS العلاقة, Vul1 AS هشاشة1, Vul2 AS هشاشة2, Vul3 AS هشاشة3, Vul4 AS هشاشة4, 
-                         Vul5 AS هشاشة5, Vul6 AS هشاشة6, IsExported AS تم, [Action], Mobile AS الجوال, UNCard AS [بطاقة التموين]
+                         Vul5 AS هشاشة5, Vul6 AS هشاشة6, IsExported AS تم, [Action], Mobile AS الجوال, UNCard AS [بطاقة التموين], RegDate AS [تاريخ الاجراء]
 FROM            Data
 WHERE        (HoFID = ?)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
@@ -1584,17 +2077,11 @@ WHERE        (HoFID = ?)";
             this._commandCollection[1].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("MemberID", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "MemberID", global::System.Data.DataRowVersion.Original, false, null));
             this._commandCollection[2] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = @"SELECT        HoFID AS [هوية رب الاسرة], Fname AS الاسم, Sname AS الاب, Tname AS الجد, Family AS العائلة, MemberID AS [هوية الفرد], Birth AS الميلاد, Gender AS التوع, Relation AS العلاقة, Vul1 AS هشاشة1, Vul2 AS هشاشة2, Vul3 AS هشاشة3, Vul4 AS هشاشة4, 
-                         Vul5 AS هشاشة5, Vul6 AS هشاشة6, IsExported AS تم, [Action], Mobile AS الجوال, UNCard AS [بطاقة التموين]
-FROM            Data
-WHERE        (IsExported = 0)";
+            this._commandCollection[2].CommandText = @"SELECT [Action], Birth AS الميلاد, Family AS العائلة, Fname AS الاسم, Gender AS التوع, HoFID AS [هوية رب الاسرة], IsExported AS تم, MemberID AS [هوية الفرد], Mobile AS الجوال, Relation AS العلاقة, Sname AS الاب, Tname AS الجد, UNCard AS [بطاقة التموين], Vul1 AS هشاشة1, Vul2 AS هشاشة2, Vul3 AS هشاشة3, Vul4 AS هشاشة4, Vul5 AS هشاشة5, Vul6 AS هشاشة6 FROM Data WHERE (IsExported = 0)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = @"SELECT        [Action], Birth AS الميلاد, Family AS العائلة, Fname AS الاسم, Gender AS التوع, HoFID AS [هوية رب الاسرة], IsExported AS تم, MemberID AS [هوية الفرد], Relation AS العلاقة, Sname AS الاب, Tname AS الجد, Vul1 AS هشاشة1, Vul2 AS هشاشة2, 
-                         Vul3 AS هشاشة3, Vul4 AS هشاشة4, Vul5 AS هشاشة5, Vul6 AS هشاشة6, Mobile AS الجوال, UNCard AS [بطاقة التموين]
-FROM            Data
-WHERE        (MemberID = ?) AND (Family LIKE '*' & ? & '*') AND (Fname LIKE '*' & ? & '*')";
+            this._commandCollection[3].CommandText = @"SELECT [Action], Birth AS الميلاد, Family AS العائلة, Fname AS الاسم, Gender AS التوع, HoFID AS [هوية رب الاسرة], IsExported AS تم, MemberID AS [هوية الفرد], Mobile AS الجوال, Relation AS العلاقة, Sname AS الاب, Tname AS الجد, UNCard AS [بطاقة التموين], Vul1 AS هشاشة1, Vul2 AS هشاشة2, Vul3 AS هشاشة3, Vul4 AS هشاشة4, Vul5 AS هشاشة5, Vul6 AS هشاشة6 FROM Data WHERE (MemberID = ?) AND (Family LIKE '*' & ? & '*') AND (Fname LIKE '*' & ? & '*')";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("MemberID", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "هوية الفرد", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[3].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Family", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "العائلة", global::System.Data.DataRowVersion.Current, false, null));
@@ -1602,8 +2089,8 @@ WHERE        (MemberID = ?) AND (Family LIKE '*' & ? & '*') AND (Fname LIKE '*' 
             this._commandCollection[4] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[4].Connection = this.Connection;
             this._commandCollection[4].CommandText = @"INSERT INTO Data
-                         (HoFID, Fname, Sname, Tname, Family, MemberID, Birth, Gender, Relation, Vul1, Vul2, Vul3, [Action], IsExported, Vul4, Vul5, Vul6, UNCard, Mobile)
-VALUES        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                         (HoFID, Fname, Sname, Tname, Family, MemberID, Birth, Gender, Relation, Vul1, Vul2, Vul3, Vul4, Vul5, Vul6, [Action], IsExported, UNCard, Mobile, RegDate)
+VALUES        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[4].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("HoFID", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "HoFID", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[4].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Fname", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Fname", global::System.Data.DataRowVersion.Current, false, null));
@@ -1617,13 +2104,14 @@ VALUES        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             this._commandCollection[4].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Vul1", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Vul1", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[4].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Vul2", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Vul2", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[4].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Vul3", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Vul3", global::System.Data.DataRowVersion.Current, false, null));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Action", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Action", global::System.Data.DataRowVersion.Current, false, null));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsExported", global::System.Data.OleDb.OleDbType.Boolean, 2, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "IsExported", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[4].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Vul4", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Vul4", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[4].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Vul5", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Vul5", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[4].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Vul6", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Vul6", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Action", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Action", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsExported", global::System.Data.OleDb.OleDbType.Boolean, 2, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "IsExported", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[4].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("UNCard", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "UNCard", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[4].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Mobile", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Mobile", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("RegDate", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "RegDate", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[5] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[5].Connection = this.Connection;
             this._commandCollection[5].CommandText = "UPDATE       Data\r\nSET                IsExported = FALSE, [Action] = ?\r\nWHERE    " +
@@ -1812,150 +2300,6 @@ VALUES        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(
-                    string هوية_رب_الاسرة, 
-                    string الاسم, 
-                    string الاب, 
-                    string الجد, 
-                    string العائلة, 
-                    string هوية_الفرد, 
-                    System.DateTime الميلاد, 
-                    string التوع, 
-                    string العلاقة, 
-                    string هشاشة1, 
-                    string هشاشة2, 
-                    string هشاشة3, 
-                    string هشاشة4, 
-                    string هشاشة5, 
-                    string هشاشة6, 
-                    bool تم, 
-                    string Action, 
-                    string الجوال, 
-                    string بطاقة_التموين) {
-            if ((هوية_رب_الاسرة == null)) {
-                throw new global::System.ArgumentNullException("هوية_رب_الاسرة");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(هوية_رب_الاسرة));
-            }
-            if ((الاسم == null)) {
-                throw new global::System.ArgumentNullException("الاسم");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(الاسم));
-            }
-            if ((الاب == null)) {
-                throw new global::System.ArgumentNullException("الاب");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(الاب));
-            }
-            if ((الجد == null)) {
-                throw new global::System.ArgumentNullException("الجد");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(الجد));
-            }
-            if ((العائلة == null)) {
-                throw new global::System.ArgumentNullException("العائلة");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(العائلة));
-            }
-            if ((هوية_الفرد == null)) {
-                throw new global::System.ArgumentNullException("هوية_الفرد");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(هوية_الفرد));
-            }
-            this.Adapter.InsertCommand.Parameters[6].Value = ((System.DateTime)(الميلاد));
-            if ((التوع == null)) {
-                throw new global::System.ArgumentNullException("التوع");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(التوع));
-            }
-            if ((العلاقة == null)) {
-                throw new global::System.ArgumentNullException("العلاقة");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(العلاقة));
-            }
-            if ((هشاشة1 == null)) {
-                throw new global::System.ArgumentNullException("هشاشة1");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(هشاشة1));
-            }
-            if ((هشاشة2 == null)) {
-                throw new global::System.ArgumentNullException("هشاشة2");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(هشاشة2));
-            }
-            if ((هشاشة3 == null)) {
-                throw new global::System.ArgumentNullException("هشاشة3");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(هشاشة3));
-            }
-            if ((هشاشة4 == null)) {
-                throw new global::System.ArgumentNullException("هشاشة4");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(هشاشة4));
-            }
-            if ((هشاشة5 == null)) {
-                throw new global::System.ArgumentNullException("هشاشة5");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[13].Value = ((string)(هشاشة5));
-            }
-            if ((هشاشة6 == null)) {
-                throw new global::System.ArgumentNullException("هشاشة6");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[14].Value = ((string)(هشاشة6));
-            }
-            this.Adapter.InsertCommand.Parameters[15].Value = ((bool)(تم));
-            if ((Action == null)) {
-                this.Adapter.InsertCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[16].Value = ((string)(Action));
-            }
-            if ((الجوال == null)) {
-                throw new global::System.ArgumentNullException("الجوال");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[17].Value = ((string)(الجوال));
-            }
-            if ((بطاقة_التموين == null)) {
-                throw new global::System.ArgumentNullException("بطاقة_التموين");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[18].Value = ((string)(بطاقة_التموين));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, false)]
         public virtual int DeleteIDP(string MemberID) {
             global::System.Data.OleDb.OleDbCommand command = this.CommandCollection[1];
@@ -1999,13 +2343,14 @@ VALUES        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                     string Vul1, 
                     string Vul2, 
                     string Vul3, 
-                    string Action, 
-                    bool IsExported, 
                     string Vul4, 
                     string Vul5, 
                     string Vul6, 
+                    string Action, 
+                    bool IsExported, 
                     string UNCard, 
-                    string Mobile) {
+                    string Mobile, 
+                    global::System.Nullable<global::System.DateTime> RegDate) {
             global::System.Data.OleDb.OleDbCommand command = this.CommandCollection[4];
             if ((HoFID == null)) {
                 command.Parameters[0].Value = global::System.DBNull.Value;
@@ -2079,31 +2424,31 @@ VALUES        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             else {
                 command.Parameters[11].Value = ((string)(Vul3));
             }
-            if ((Action == null)) {
+            if ((Vul4 == null)) {
                 command.Parameters[12].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[12].Value = ((string)(Action));
+                command.Parameters[12].Value = ((string)(Vul4));
             }
-            command.Parameters[13].Value = ((bool)(IsExported));
-            if ((Vul4 == null)) {
+            if ((Vul5 == null)) {
+                command.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[13].Value = ((string)(Vul5));
+            }
+            if ((Vul6 == null)) {
                 command.Parameters[14].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[14].Value = ((string)(Vul4));
+                command.Parameters[14].Value = ((string)(Vul6));
             }
-            if ((Vul5 == null)) {
+            if ((Action == null)) {
                 command.Parameters[15].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[15].Value = ((string)(Vul5));
+                command.Parameters[15].Value = ((string)(Action));
             }
-            if ((Vul6 == null)) {
-                command.Parameters[16].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[16].Value = ((string)(Vul6));
-            }
+            command.Parameters[16].Value = ((bool)(IsExported));
             if ((UNCard == null)) {
                 command.Parameters[17].Value = global::System.DBNull.Value;
             }
@@ -2115,6 +2460,12 @@ VALUES        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             }
             else {
                 command.Parameters[18].Value = ((string)(Mobile));
+            }
+            if ((RegDate.HasValue == true)) {
+                command.Parameters[19].Value = ((System.DateTime)(RegDate.Value));
+            }
+            else {
+                command.Parameters[19].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -2303,6 +2654,164 @@ VALUES        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                 }
             }
             return returnValue;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class Data1TableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.OleDb.OleDbDataAdapter _adapter;
+        
+        private global::System.Data.OleDb.OleDbConnection _connection;
+        
+        private global::System.Data.OleDb.OleDbTransaction _transaction;
+        
+        private global::System.Data.OleDb.OleDbCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public Data1TableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected internal global::System.Data.OleDb.OleDbDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.OleDb.OleDbConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.OleDb.OleDbCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.OleDb.OleDbTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected global::System.Data.OleDb.OleDbCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.OleDb.OleDbDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "Data1";
+            tableMapping.ColumnMappings.Add("هوية الفرد", "هوية الفرد");
+            tableMapping.ColumnMappings.Add("اسم الفرد", "اسم الفرد");
+            tableMapping.ColumnMappings.Add("هوية رب الأسرى", "هوية رب الأسرة");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.OleDb.OleDbConnection();
+            this._connection.ConnectionString = global::IDPSFamiliesExcelReporter.Properties.Settings.Default.FamiliesInShelteCS;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
+            this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT        MemberID AS [هوية الفرد], Fname & \' \' & Sname & \' \' & Tname & \' \' &" +
+                " Family AS [اسم الفرد], HoFID AS [هوية رب الأسرى]\r\nFROM            Data\r\nWHERE  " +
+                "      (IsExported = 0)";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual FamiliesShelterDataSet.Data1DataTable GetNotExported() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            FamiliesShelterDataSet.Data1DataTable dataTable = new FamiliesShelterDataSet.Data1DataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
         }
     }
     

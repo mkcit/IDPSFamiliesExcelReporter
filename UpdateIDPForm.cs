@@ -286,11 +286,12 @@ namespace IDPSFamiliesExcelReporter
 				}
 
 
+
 				// UPDATE
 				adapter.UpdateIDP(
-							Fname,
-							Sname,
-							Tname,
+							FName,
+							SName,
+							TName,
 							FamilyName,
 							Convert.ToDateTime(DOB),
 							Gender,
@@ -304,8 +305,6 @@ namespace IDPSFamiliesExcelReporter
 							MemberID
 							);
 
-
-				//int status = adapter.UpdateIDP(Fname, Sname, Tname, Family, Birth, Gender, Vul1, Vul2, Vul3, Action, MemberID);
 
 
 				Options.Info();
