@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace IDPSFamiliesExcelReporter
 {
-    public  class Options
+	public  class Options
     {
         internal readonly static List<object> copy_data = new List<object>();
         internal readonly static  String HIMSELF = "نفسه (رب الاسرة)";
@@ -39,9 +37,10 @@ namespace IDPSFamiliesExcelReporter
         internal static String Older_person = "Older person (60+)  \nكبار السن  ";
         internal static String Child_headed_household = "Child headed household\n الاسرة التي يقودها طفل  ";
 
+		public static Color Theme { get; 
+                set; }=System.Drawing.SystemColors.ActiveCaptionText;
 
-
-        internal static void Error(string msg)
+		internal static void Error(string msg)
         {
             MessageBox.Show(msg, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }

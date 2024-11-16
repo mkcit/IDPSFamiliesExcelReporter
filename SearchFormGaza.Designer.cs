@@ -40,12 +40,8 @@
 			this.txtFamiliyName = new System.Windows.Forms.TextBox();
 			this.label4 = new System.Windows.Forms.Label();
 			this.txtTName = new System.Windows.Forms.TextBox();
-			this.btnFirst = new System.Windows.Forms.Button();
-			this.btnLast = new System.Windows.Forms.Button();
-			this.btnNext = new System.Windows.Forms.Button();
-			this.btnPrevious = new System.Windows.Forms.Button();
-			this.txtPageNumber = new System.Windows.Forms.TextBox();
-			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.label6 = new System.Windows.Forms.Label();
+			this.btnNewSearch = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.gvSearch)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -59,16 +55,16 @@
 			this.gvSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.gvSearch.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Copy});
-			this.gvSearch.Location = new System.Drawing.Point(12, 93);
+			this.gvSearch.Location = new System.Drawing.Point(12, 182);
 			this.gvSearch.MultiSelect = false;
 			this.gvSearch.Name = "gvSearch";
 			this.gvSearch.ReadOnly = true;
 			this.gvSearch.RowHeadersVisible = false;
 			this.gvSearch.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.gvSearch.Size = new System.Drawing.Size(617, 513);
+			this.gvSearch.Size = new System.Drawing.Size(974, 424);
 			this.gvSearch.TabIndex = 0;
 			this.gvSearch.VirtualMode = true;
-			this.gvSearch.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvSearch_CellClick);
+			this.gvSearch.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvSearch_CellDoubleClick);
 			this.gvSearch.CellValueNeeded += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.gvSearch_CellValueNeeded);
 			this.gvSearch.Scroll += new System.Windows.Forms.ScrollEventHandler(this.gvSearch_Scroll);
 			this.gvSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.gvSearch_KeyUp);
@@ -90,7 +86,7 @@
 			this.label1.AutoSize = true;
 			this.label1.Font = new System.Drawing.Font("AdvertisingBold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.label1.Location = new System.Drawing.Point(11, 13);
+			this.label1.Location = new System.Drawing.Point(12, 111);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(101, 29);
 			this.label1.TabIndex = 4;
@@ -100,7 +96,7 @@
 			// 
 			this.txtIdentity.BackColor = System.Drawing.SystemColors.Info;
 			this.txtIdentity.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtIdentity.Location = new System.Drawing.Point(120, 12);
+			this.txtIdentity.Location = new System.Drawing.Point(121, 110);
 			this.txtIdentity.Name = "txtIdentity";
 			this.txtIdentity.Size = new System.Drawing.Size(136, 30);
 			this.txtIdentity.TabIndex = 1;
@@ -111,7 +107,7 @@
 			this.label2.AutoSize = true;
 			this.label2.Font = new System.Drawing.Font("AdvertisingBold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.label2.Location = new System.Drawing.Point(286, 13);
+			this.label2.Location = new System.Drawing.Point(269, 109);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(101, 29);
 			this.label2.TabIndex = 48;
@@ -120,7 +116,7 @@
 			// txtFname
 			// 
 			this.txtFname.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtFname.Location = new System.Drawing.Point(393, 12);
+			this.txtFname.Location = new System.Drawing.Point(370, 108);
 			this.txtFname.Name = "txtFname";
 			this.txtFname.Size = new System.Drawing.Size(136, 30);
 			this.txtFname.TabIndex = 2;
@@ -131,7 +127,7 @@
 			this.label3.AutoSize = true;
 			this.label3.Font = new System.Drawing.Font("AdvertisingBold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.label3.Location = new System.Drawing.Point(561, 13);
+			this.label3.Location = new System.Drawing.Point(520, 107);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(87, 29);
 			this.label3.TabIndex = 51;
@@ -140,7 +136,7 @@
 			// txtSname
 			// 
 			this.txtSname.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtSname.Location = new System.Drawing.Point(654, 12);
+			this.txtSname.Location = new System.Drawing.Point(613, 106);
 			this.txtSname.Name = "txtSname";
 			this.txtSname.Size = new System.Drawing.Size(136, 30);
 			this.txtSname.TabIndex = 3;
@@ -151,7 +147,7 @@
 			this.label5.AutoSize = true;
 			this.label5.Font = new System.Drawing.Font("AdvertisingBold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.label5.Location = new System.Drawing.Point(318, 49);
+			this.label5.Location = new System.Drawing.Point(297, 147);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(69, 29);
 			this.label5.TabIndex = 53;
@@ -160,7 +156,7 @@
 			// txtFamiliyName
 			// 
 			this.txtFamiliyName.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtFamiliyName.Location = new System.Drawing.Point(393, 48);
+			this.txtFamiliyName.Location = new System.Drawing.Point(370, 146);
 			this.txtFamiliyName.Name = "txtFamiliyName";
 			this.txtFamiliyName.Size = new System.Drawing.Size(136, 30);
 			this.txtFamiliyName.TabIndex = 5;
@@ -171,7 +167,7 @@
 			this.label4.AutoSize = true;
 			this.label4.Font = new System.Drawing.Font("AdvertisingBold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.label4.Location = new System.Drawing.Point(27, 49);
+			this.label4.Location = new System.Drawing.Point(28, 147);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(87, 29);
 			this.label4.TabIndex = 55;
@@ -180,79 +176,46 @@
 			// txtTName
 			// 
 			this.txtTName.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtTName.Location = new System.Drawing.Point(120, 48);
+			this.txtTName.Location = new System.Drawing.Point(121, 146);
 			this.txtTName.Name = "txtTName";
 			this.txtTName.Size = new System.Drawing.Size(136, 30);
 			this.txtTName.TabIndex = 4;
 			this.txtTName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTName_KeyDown);
 			// 
-			// btnFirst
+			// label6
 			// 
-			this.btnFirst.Location = new System.Drawing.Point(821, 40);
-			this.btnFirst.Name = "btnFirst";
-			this.btnFirst.Size = new System.Drawing.Size(44, 38);
-			this.btnFirst.TabIndex = 56;
-			this.btnFirst.Text = "<";
-			this.btnFirst.UseVisualStyleBackColor = true;
+			this.label6.AutoSize = true;
+			this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.label6.Font = new System.Drawing.Font("MCS Taybah S_U normal.", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+			this.label6.Location = new System.Drawing.Point(185, 9);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(615, 77);
+			this.label6.TabIndex = 56;
+			this.label6.Text = "السجل المدني الفلسطيني 2016";
+			this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
-			// btnLast
+			// btnNewSearch
 			// 
-			this.btnLast.Location = new System.Drawing.Point(1029, 40);
-			this.btnLast.Name = "btnLast";
-			this.btnLast.Size = new System.Drawing.Size(44, 38);
-			this.btnLast.TabIndex = 57;
-			this.btnLast.Text = ">";
-			this.btnLast.UseVisualStyleBackColor = true;
-			// 
-			// btnNext
-			// 
-			this.btnNext.Location = new System.Drawing.Point(871, 40);
-			this.btnNext.Name = "btnNext";
-			this.btnNext.Size = new System.Drawing.Size(44, 38);
-			this.btnNext.TabIndex = 58;
-			this.btnNext.Text = "<<";
-			this.btnNext.UseVisualStyleBackColor = true;
-			this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
-			// 
-			// btnPrevious
-			// 
-			this.btnPrevious.Location = new System.Drawing.Point(979, 40);
-			this.btnPrevious.Name = "btnPrevious";
-			this.btnPrevious.Size = new System.Drawing.Size(44, 38);
-			this.btnPrevious.TabIndex = 59;
-			this.btnPrevious.Text = ">>";
-			this.btnPrevious.UseVisualStyleBackColor = true;
-			this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
-			// 
-			// txtPageNumber
-			// 
-			this.txtPageNumber.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.txtPageNumber.Location = new System.Drawing.Point(926, 45);
-			this.txtPageNumber.Name = "txtPageNumber";
-			this.txtPageNumber.Size = new System.Drawing.Size(47, 27);
-			this.txtPageNumber.TabIndex = 60;
-			this.txtPageNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			// 
-			// textBox1
-			// 
-			this.textBox1.Location = new System.Drawing.Point(635, 122);
-			this.textBox1.Multiline = true;
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(444, 363);
-			this.textBox1.TabIndex = 61;
+			this.btnNewSearch.BackColor = System.Drawing.SystemColors.ActiveCaption;
+			this.btnNewSearch.Font = new System.Drawing.Font("AdvertisingLight", 15.75F);
+			this.btnNewSearch.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.btnNewSearch.Location = new System.Drawing.Point(805, 122);
+			this.btnNewSearch.Name = "btnNewSearch";
+			this.btnNewSearch.Size = new System.Drawing.Size(181, 54);
+			this.btnNewSearch.TabIndex = 57;
+			this.btnNewSearch.Text = "امسح الحقول";
+			this.btnNewSearch.UseVisualStyleBackColor = false;
+			this.btnNewSearch.Click += new System.EventHandler(this.btnNewSearch_Click);
 			// 
 			// SearchFormGaza
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-			this.ClientSize = new System.Drawing.Size(1086, 618);
-			this.Controls.Add(this.textBox1);
-			this.Controls.Add(this.txtPageNumber);
-			this.Controls.Add(this.btnPrevious);
-			this.Controls.Add(this.btnNext);
-			this.Controls.Add(this.btnLast);
-			this.Controls.Add(this.btnFirst);
+			this.ClientSize = new System.Drawing.Size(998, 618);
+			this.Controls.Add(this.btnNewSearch);
+			this.Controls.Add(this.label6);
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.txtTName);
 			this.Controls.Add(this.label5);
@@ -271,7 +234,7 @@
 			this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.RightToLeftLayout = true;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "شاشة البحث و التعديل";
+			this.Text = "البحث في السجل المدني 2016";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SearchFormGaza_FormClosing);
 			this.Load += new System.EventHandler(this.SearchFormGaza_Load);
 			this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SearchForm_KeyDown);
@@ -295,11 +258,7 @@
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.TextBox txtTName;
 		private System.Windows.Forms.DataGridViewButtonColumn Copy;
-		private System.Windows.Forms.Button btnFirst;
-		private System.Windows.Forms.Button btnLast;
-		private System.Windows.Forms.Button btnNext;
-		private System.Windows.Forms.Button btnPrevious;
-		private System.Windows.Forms.TextBox txtPageNumber;
-		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.Button btnNewSearch;
 	}
 }

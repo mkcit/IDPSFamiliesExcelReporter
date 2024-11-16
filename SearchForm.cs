@@ -286,5 +286,14 @@ namespace IDPSFamiliesExcelReporter
 				Dispose();
 			}
 		}
+
+		private void btnNewSearch_Click(object sender, EventArgs e)
+		{
+			txtIdentity.Text = "";
+			txtFname.Text = "";
+			txtSname.Text = "";
+			txtFamiliyName.Text = "";
+			gvSearch.DataSource = null;
+		}
 	}
 }

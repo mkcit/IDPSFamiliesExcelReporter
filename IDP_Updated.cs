@@ -1,20 +1,12 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
-using static OfficeOpenXml.ExcelErrorValue;
+using static IDPSFamiliesExcelReporter.GazaPeopleDataSet;
 
 namespace IDPSFamiliesExcelReporter
 {
-    public partial class IDP_Updated : Form
+	public partial class IDP_Updated : Form
     {
         internal static bool Prgenant = false;
         internal static bool Serious = false;
@@ -31,7 +23,7 @@ namespace IDPSFamiliesExcelReporter
         internal static string SName;
         internal static string Identity;
         internal static string TName;
-        internal static string FamilyName;
+		internal static string FamilyName;
         internal static string DOB;
         internal static string Gender;
         internal static int RowIndex;
@@ -39,32 +31,26 @@ namespace IDPSFamiliesExcelReporter
         {
             InitializeComponent();
         }
-
         public DataGridView GetGridView()
         {
             return gvIDPOperation;
         }
-
         public Label GetFNameLabel()
         {
             return lbHOFFName;
         }
-
         public Label GetSNameLabel()
         {
             return lbHOFSName;
         }
-
         public Label GetFamilyNameLabel()
         {
             return lbHOFFamilyName;
         }
-
         public Label GetIdentityLabel()
         {
             return lbHOFIdentity;
         }
-
         public Label GetGenderLabel()
         {
             return lbHOFGender;
@@ -87,12 +73,10 @@ namespace IDPSFamiliesExcelReporter
         private void TextboxNumeric_KeyPress(object sender, KeyPressEventArgs e)
         {
             bool nonNumberEntered = true;
-
             if ((e.KeyChar >= 48 && e.KeyChar <= 57) || e.KeyChar == 8)
             {
                 nonNumberEntered = false;
             }
-
             if (nonNumberEntered)
             {
                 // Stop the character from being entered into the control since it is non-numerical.
@@ -103,7 +87,6 @@ namespace IDPSFamiliesExcelReporter
                 e.Handled = false;
             }
         }
-
         private void IDP_Updated_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -122,20 +105,6 @@ namespace IDPSFamiliesExcelReporter
                 dataGridViewRow.Cells[10].Value = false;
                 dataGridViewRow.Cells[11].Value = false;
                 dataGridViewRow.Cells[12].Value = false;
-
-				//dataGridViewRow.Cells["cPrgenant"].Value = false;
-				//dataGridViewRow.Cells["cSerious"].Value = false;
-				//dataGridViewRow.Cells["cPhysicalDis"].Value = false;
-				//dataGridViewRow.Cells["cVisualDis"].Value = false;
-				//dataGridViewRow.Cells["cHearingDis"].Value = false;
-				//dataGridViewRow.Cells["cIntellDis"].Value = false;
-				//dataGridViewRow.Cells["cFemale_HOF"].Value = false;
-				//dataGridViewRow.Cells["cU_Child_HOF"].Value = false;
-				//dataGridViewRow.Cells["cSepChild"].Value = false;
-				//dataGridViewRow.Cells["cOlderPer"].Value = false;
-				//dataGridViewRow.Cells["cChild_HOF"].Value = false;
-
-
 
 
 				dataGridViewRow.Cells[15].Value = 0;
@@ -178,54 +147,52 @@ namespace IDPSFamiliesExcelReporter
                 }
             }
 
-
-
-            if (e.KeyCode == Keys.Add||e.KeyCode==Keys.Space)
+            if (e.KeyCode == Keys.Add || e.KeyCode == Keys.Space)
             {
-                
+
                 if (gvIDPOperation.Rows.Count > 0)
                 {
                     // End Edit To Add New Wife
                     gvIDPOperation.EndEdit();
 
-					gvIDPOperation.Rows[gvIDPOperation.Rows.Count - 1].Cells[0].Selected = true;
-					DataGridViewRow dataGridViewRow = new DataGridViewRow();
-					dataGridViewRow.CreateCells(gvIDPOperation);
-					dataGridViewRow.Cells[0].Value = "";
-					dataGridViewRow.Cells[2].Value = false;
-					dataGridViewRow.Cells[3].Value = false;
-					dataGridViewRow.Cells[4].Value = false;
-					dataGridViewRow.Cells[5].Value = false;
-					dataGridViewRow.Cells[6].Value = false;
-					dataGridViewRow.Cells[7].Value = false;
-					dataGridViewRow.Cells[8].Value = false;
-					dataGridViewRow.Cells[9].Value = false;
-					dataGridViewRow.Cells[10].Value = false;
-					dataGridViewRow.Cells[11].Value = false;
-					dataGridViewRow.Cells[12].Value = false;
-					dataGridViewRow.Cells[15].Value = 0;
-					dataGridViewRow.Cells[16].Value = "";
-					dataGridViewRow.Cells[18].Value = "";
-					dataGridViewRow.Cells[19].Value = "";
-					dataGridViewRow.Cells[20].Value = "";
-					dataGridViewRow.Cells[21].Value = "";
-					dataGridViewRow.Cells[22].Value = "";
-					dataGridViewRow.Cells[23].Value = "";
+                    gvIDPOperation.Rows[gvIDPOperation.Rows.Count - 1].Cells[0].Selected = true;
+                    DataGridViewRow dataGridViewRow = new DataGridViewRow();
+                    dataGridViewRow.CreateCells(gvIDPOperation);
+                    dataGridViewRow.Cells[0].Value = "";
+                    dataGridViewRow.Cells[2].Value = false;
+                    dataGridViewRow.Cells[3].Value = false;
+                    dataGridViewRow.Cells[4].Value = false;
+                    dataGridViewRow.Cells[5].Value = false;
+                    dataGridViewRow.Cells[6].Value = false;
+                    dataGridViewRow.Cells[7].Value = false;
+                    dataGridViewRow.Cells[8].Value = false;
+                    dataGridViewRow.Cells[9].Value = false;
+                    dataGridViewRow.Cells[10].Value = false;
+                    dataGridViewRow.Cells[11].Value = false;
+                    dataGridViewRow.Cells[12].Value = false;
+                    dataGridViewRow.Cells[15].Value = 0;
+                    dataGridViewRow.Cells[16].Value = "";
+                    dataGridViewRow.Cells[18].Value = "";
+                    dataGridViewRow.Cells[19].Value = "";
+                    dataGridViewRow.Cells[20].Value = "";
+                    dataGridViewRow.Cells[21].Value = "";
+                    dataGridViewRow.Cells[22].Value = "";
+                    dataGridViewRow.Cells[23].Value = "";
 
-					dataGridViewRow.Cells[1].Value = Options.WIFE;
+                    dataGridViewRow.Cells[1].Value = Options.WIFE;
 
-					int rows_count = gvIDPOperation.Rows.Count;
-					// If The Previous Row Is Empty Do nothing
-					// You Must fill up the previous rows before you add new Memeber
-					String value = gvIDPOperation.Rows[rows_count - 1].Cells[0].Value.ToString();
-					if (value != "")
-					{
-						gvIDPOperation.Rows.Add(dataGridViewRow);
+                    int rows_count = gvIDPOperation.Rows.Count;
+                    // If The Previous Row Is Empty Do nothing
+                    // You Must fill up the previous rows before you add new Memeber
+                    String value = gvIDPOperation.Rows[rows_count - 1].Cells[0].Value.ToString();
+                    if (value != "")
+                    {
+                        gvIDPOperation.Rows.Add(dataGridViewRow);
 
-						// select the last row - focus on it.
-						gvIDPOperation.Rows[gvIDPOperation.Rows.Count - 1].Cells[0].Selected = true;
-					}
-				}
+                        // select the last row - focus on it.
+                        gvIDPOperation.Rows[gvIDPOperation.Rows.Count - 1].Cells[0].Selected = true;
+                    }
+                }
             }
 
             if (e.KeyCode == Keys.Subtract)
@@ -237,12 +204,7 @@ namespace IDPSFamiliesExcelReporter
             }
         }
 
-        private bool FoundInDB(int rowIndex)
-        {
-            return Convert.ToInt32(gvIDPOperation.Rows[rowIndex].Cells[15].Value) == 1;
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
+		private void btnSave_Click(object sender, EventArgs e)
         {
             
             FamiliesShelterDataSetTableAdapters.QueriesTableAdapter qAdapter = 
@@ -382,9 +344,6 @@ namespace IDPSFamiliesExcelReporter
 
         private bool IsRelatedToHOF(GazaPeopleDataSet.DataDataTable gpDT)
         {
-            //        MessageBox.Show("1)Relative:" + gpDT.Rows[0]["SName"].ToString().Replace(" ","") + "-HOF:" + lbHOFFName.Text.Replace(" ", "") + "\n"+
-            //"2)Relative:" + gpDT.Rows[0]["TName"].ToString().Replace(" ", "") + "-HOF:" + lbHOFSName.Text.Replace(" ", "") + "\n" +
-            //"3)Relative:" + gpDT.Rows[0]["LName"].ToString().Replace(" ", "") + "-HOF:" + lbHOFFamilyName.Text.Replace(" ", ""));
             return 
                 PrepareTextToBeComparedBetter(gpDT.Rows[0]["SName"].ToString()) ==
                 PrepareTextToBeComparedBetter(lbHOFFName.Text) 
@@ -444,7 +403,7 @@ namespace IDPSFamiliesExcelReporter
             lbHOFGender.Text = gpDT.Rows[0]["Gender"].ToString();
         }
 
-        private static bool IsFoundInDB(GazaPeopleDataSet.DataDataTable gpDT)
+        private static bool IsFoundInDB(DataDataTable gpDT)
         {
             return gpDT.Rows.Count > 0;
         }
@@ -477,7 +436,8 @@ namespace IDPSFamiliesExcelReporter
                 }
                 else if (IsPressedOnAddManualButton(e))
                 {
-                    int state = Convert.ToInt32(gvIDPOperation.Rows[e.RowIndex].Cells[15].Value);
+                    int state = 
+                        Convert.ToInt32(gvIDPOperation.Rows[e.RowIndex].Cells[15].Value);
                     if (state != 0)
                     {
                         if (state == -1)
@@ -494,7 +454,7 @@ namespace IDPSFamiliesExcelReporter
                         }
                         else
                         {
-                            String Msg = gvIDPOperation.Rows[e.RowIndex].Cells[16].Value.ToString();
+                            var Msg = gvIDPOperation.Rows[e.RowIndex].Cells[16].Value.ToString();
                             MessageBox.Show(this, Msg, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
@@ -616,10 +576,10 @@ namespace IDPSFamiliesExcelReporter
             {
                 String HOFID = gvIDPOperation.Rows[0].Cells[0].Value.ToString();
                 int HOFState = Convert.ToInt32(gvIDPOperation.Rows[0].Cells[15].Value);
-                if (HOFID != "")
+				//DateTime HOFDOB = Convert.ToDateTime();
+                //MessageBox.Show(HOFDOB.ToString());
+				if (HOFID != "")
                 {
-
-
                     if (HOFState != 1)
                     {
                         // Process The Data
@@ -628,12 +588,29 @@ namespace IDPSFamiliesExcelReporter
                         {
                             PrintHOFInLabels(gpDT);
                             FillCellsInGridView(gpDT, 0);
-                            SetSuccessRowStyleInGridView(0, 1, "البيانات سليمة لا يوجد مشكلات");
+                            SetSuccessRowStyleInGridView(0, 1,
+                                "البيانات سليمة لا يوجد مشكلات");
 
-                            if (IsHOFFemale())
+                            DateTime dob;
+                            bool isSucess = DateTime.TryParse(
+                                gvIDPOperation.Rows[0].Cells[23].Value.ToString(), out dob);
+                            if (isSucess)
+                            {
+								if (IsGreaterThan60(dob))
+								{
+									gvIDPOperation.Rows[0].Cells[11].Value = true;
+								}
+								if (IsLessThan18(dob))
+								{
+									gvIDPOperation.Rows[0].Cells[12].Value = true;
+								}
+							}
+
+							if (IsHOFFemale())
                             {
                                 gvIDPOperation.Rows[0].Cells[8].Value = true;
                             }
+                            
                         }
                         else
                         {
@@ -659,7 +636,7 @@ namespace IDPSFamiliesExcelReporter
                     {
                         int state = Convert.ToInt32(gvIDPOperation.Rows[i].Cells[15].Value);
 
-                        if(state !=1)
+                        if (state != 1)
                         {
                             String ID = gvIDPOperation.Rows[i].Cells[0].Value.ToString();
                             if (ID != "")
@@ -675,7 +652,7 @@ namespace IDPSFamiliesExcelReporter
                                         if (IsFoundInDB(gpDT))
                                         {
                                             // If is Not Male
-                                            if (gpDT.Rows[0]["Gender"].ToString() =="2")
+                                            if (gpDT.Rows[0]["Gender"].ToString() == "2")
                                             {
                                                 FillCellsInGridView(gpDT, i);
                                                 SetSuccessRowStyleInGridView(i, 1, "البيانات سليمة لا يوجد مشكلات");
@@ -718,7 +695,7 @@ namespace IDPSFamiliesExcelReporter
                                             FillCellsInGridView(gpDT, i);
                                             SetSuccessRowStyleInGridView(i, 1, "البيانات سليمة لا يوجد مشكلات");
                                         }
-                                        
+
                                     }
                                     else
                                     {
@@ -737,6 +714,40 @@ namespace IDPSFamiliesExcelReporter
                 }
             }
         }
+
+		private bool IsLessThan18(DateTime dob)
+		{
+			DateTime currentDate = DateTime.Now;
+			TimeSpan timeSpan;
+			if (dob <= DateTime.Now)
+			{
+				timeSpan = currentDate - dob;
+			}
+			else
+			{
+				dob = new DateTime(dob.Year - 100, dob.Month, dob.Day);
+				timeSpan = currentDate - dob;
+			}
+
+			return (timeSpan.TotalDays / 365) < 18;
+		}
+
+		private bool IsGreaterThan60(DateTime dob)
+		{
+			DateTime currentDate = DateTime.Now;
+            TimeSpan timeSpan;
+			if (dob <= DateTime.Now)
+            {
+				 timeSpan = currentDate - dob;
+			}
+            else
+            {
+                dob = new DateTime(dob.Year-100, dob.Month, dob.Day);
+				timeSpan = currentDate - dob;
+			}
+
+            return (timeSpan.TotalDays / 365) >= 60;
+		}
 
 		private void gvIDPOperation_CellContentClick(object sender, DataGridViewCellEventArgs e)
 		{

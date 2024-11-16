@@ -1,17 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Security.Policy;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace IDPSFamiliesExcelReporter
 {
-    public partial class AddIDP : Form
+	public partial class AddIDP : Form
     {
         public static String Gender = "النوع الاجتماعي";
         public static bool Prgenant = false;

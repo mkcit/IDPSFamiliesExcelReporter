@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections;
-using System.Reflection;
-using System.Security.Cryptography;
-using System.Security.Principal;
 using System.Windows.Forms;
 
 namespace IDPSFamiliesExcelReporter
 {
-    public partial class UpdateIDPForm : Form
+	public partial class UpdateIDPForm : Form
     {
         internal static string MemberID;
         internal static string Fname;
@@ -15,13 +12,12 @@ namespace IDPSFamiliesExcelReporter
         internal static string Tname;
         internal static string FamilyName;
         internal static string Gender;
-        internal static DateTime DOB;
         internal static string Vul1;
         internal static string Vul2;
         internal static string Vul3;
-        internal static bool IsExportedToExcel;
-        internal static String Action;
-
+		internal static string Action;
+		internal static bool IsExportedToExcel;
+		internal static DateTime DOB;
 
 		public static bool Prgenant = false;
 		public static bool Serious = false;
@@ -34,7 +30,6 @@ namespace IDPSFamiliesExcelReporter
 		public static bool SepChild = false;
 		public static bool OlderPer = false;
 		public static bool Child_HOF = false;
-
 		public static string Vul4 { get; internal set; }
 		public static string Vul5 { get; internal set; }
 		public static string Vul6 { get; internal set; }
@@ -43,18 +38,24 @@ namespace IDPSFamiliesExcelReporter
         {
             InitializeComponent();
         }
-
-
         private void UpdateIDPForm_Load(object sender, EventArgs e)
         {
             cbGender.SelectedIndex = 0;
-            //cbVul1.SelectedIndex = 0;
-            //cbVul3.SelectedIndex = 0;   
-            //cbVul2.SelectedIndex = 0;
 
             FillData();
 
 			PrepareGridView();
+
+
+
+			//if (Options.copy_data.Count > 0)
+			//{
+			//	btnPaste.Visible = true;
+			//}
+			//else
+			//{
+			//	btnPaste.Visible = false;
+			//}
 		}
 
         private void PrepareGridView()
@@ -179,17 +180,17 @@ namespace IDPSFamiliesExcelReporter
 				String DOB = txtDOB.Text;
 
 
-				Prgenant = Convert.ToBoolean(gvVul.Rows[0].Cells[0].Value);
-				Serious = Convert.ToBoolean(gvVul.Rows[0].Cells[1].Value);
-				PhysicalDis = Convert.ToBoolean(gvVul.Rows[0].Cells[2].Value);
-				VisualDis = Convert.ToBoolean(gvVul.Rows[0].Cells[3].Value);
-				HearingDis = Convert.ToBoolean(gvVul.Rows[0].Cells[4].Value);
-				IntellDis = Convert.ToBoolean(gvVul.Rows[0].Cells[5].Value);
-				Female_HOF = Convert.ToBoolean(gvVul.Rows[0].Cells[6].Value);
-				U_Child_HOF = Convert.ToBoolean(gvVul.Rows[0].Cells[7].Value);
-				SepChild = Convert.ToBoolean(gvVul.Rows[0].Cells[8].Value);
-				OlderPer = Convert.ToBoolean(gvVul.Rows[0].Cells[9].Value);
-				Child_HOF = Convert.ToBoolean(gvVul.Rows[0].Cells[10].Value);
+				Prgenant		= Convert.ToBoolean(gvVul.Rows[0].Cells[0].Value);
+				Serious			= Convert.ToBoolean(gvVul.Rows[0].Cells[1].Value);
+				PhysicalDis		= Convert.ToBoolean(gvVul.Rows[0].Cells[2].Value);
+				VisualDis		= Convert.ToBoolean(gvVul.Rows[0].Cells[3].Value);
+				HearingDis		= Convert.ToBoolean(gvVul.Rows[0].Cells[4].Value);
+				IntellDis		= Convert.ToBoolean(gvVul.Rows[0].Cells[5].Value);
+				Female_HOF		= Convert.ToBoolean(gvVul.Rows[0].Cells[6].Value);
+				U_Child_HOF		= Convert.ToBoolean(gvVul.Rows[0].Cells[7].Value);
+				SepChild		= Convert.ToBoolean(gvVul.Rows[0].Cells[8].Value);
+				OlderPer		= Convert.ToBoolean(gvVul.Rows[0].Cells[9].Value);
+				Child_HOF		= Convert.ToBoolean(gvVul.Rows[0].Cells[10].Value);
 
 
 				String Vul1 = Prgenant ? Options.Pregnant_woman : "";
@@ -399,6 +400,17 @@ namespace IDPSFamiliesExcelReporter
 		private bool IsRequiredDataFilled()
 		{
 			return txtIdentity.Text != "" && txtIdentity.Text.Length == 9 && txtFname.Text != "" && txtSname.Text != "" && txtTname.Text != "" && txtFamiliyName.Text != "" && cbGender.SelectedIndex != 0;
+		}
+
+		private void btnPaste_Click(object sender, EventArgs e)
+		{
+			MessageBox.Show(
+				$"Identity:{Options.copy_data[1].ToString()}\n" +
+				$"First Name:{Options.copy_data[2].ToString()}\n" +
+				$"Second Name:{Options.copy_data[3].ToString()}\n" +
+				$"Third Name:{Options.copy_data[4].ToString()}\n" +
+				$"Family Name:{Options.copy_data[5].ToString()}\n"+
+				$"Date of Birth:{Options.copy_data[6].ToString()}");
 		}
 	}
 }

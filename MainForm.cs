@@ -1,16 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace IDPSFamiliesExcelReporter
 {
-    public partial class MainForm : Form
+	public partial class MainForm : Form
     {
         public MainForm()
         {
@@ -52,6 +45,37 @@ namespace IDPSFamiliesExcelReporter
 
 			//SearchFormGaza form = new SearchFormGaza();
 			//form.Show(this);
+		}
+
+		private void btnGreen_Click(object sender, EventArgs e)
+		{
+            Options.Theme = System.Drawing.Color.Green;
+            //Refresh();
+		}
+
+		private void btnSilver_Click(object sender, EventArgs e)
+		{
+			Options.Theme = System.Drawing.Color.Silver;
+		}
+
+		private void btnBlack_Click(object sender, EventArgs e)
+		{
+			Options.Theme = System.Drawing.Color.Black;
+		}
+
+		private void btnRed_Click(object sender, EventArgs e)
+		{
+			Options.Theme = System.Drawing.Color.DarkRed;
+		}
+
+		private void btnBlue_Click(object sender, EventArgs e)
+		{
+			Options.Theme = System.Drawing.Color.DarkBlue;
+		}
+
+		private void btnWhite_Click(object sender, EventArgs e)
+		{
+			Options.Theme = System.Drawing.Color.White;
 		}
 	}
 }
