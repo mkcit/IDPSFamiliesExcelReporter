@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.OleDb;
-using System.Reflection;
-using System.Security.Cryptography;
-using System.Threading.Tasks;
+using System.Security.Principal;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
@@ -17,12 +15,11 @@ namespace IDPSFamiliesExcelReporter
 
 		public SearchFormGaza()
 		{
-
-			 dbConnection = new OleDbConnection(Properties.Settings.Default.GazaPeopleCS);
+			dbConnection = new OleDbConnection(Properties.Settings.Default.GazaPeopleCS);
 			InitializeComponent();
 		}
 
-		private async void BindGridView()
+		private  void BindGridView()
 		{
 			gvSearch.Focus();
 
@@ -32,10 +29,6 @@ namespace IDPSFamiliesExcelReporter
 			string TName = txtTName.Text;
 			String Family = txtFamiliyName.Text;
 			if (Identity == "" && FName == "" && SName == "" && TName == "" && Family == "") return;
-
-
-
-
 
 			String cond = " where ";
 			//if (Identity != "" || FName != "" || SName != "" || Family != "")
@@ -68,9 +61,9 @@ namespace IDPSFamiliesExcelReporter
 				cond += " LName like '%" + Family + "%'";
 			}
 
-			await Task.Run(() =>
+			//Task.Run(() =>
 			{
-				
+
 
 				int MaxRows = 1000;
 				int page = pageIndex * MaxRows + 1;
@@ -86,39 +79,35 @@ namespace IDPSFamiliesExcelReporter
 				")AS Temp2 ORDER BY Temp2.[Identity]  ";
 
 
-				using (OleDbCommand command = new OleDbCommand(sql, dbConnection))
-				{
-					dbConnection.Open();
-					using (OleDbDataReader reader = command.ExecuteReader())
-					{
-						DataTable dt = new DataTable();
-						BindingSource bs = new BindingSource();
-						dt.Load(reader);
+				OleDbCommand command = new OleDbCommand(sql, dbConnection);
 
-						bs.DataSource = dt;
-						gvSearch.DataSource = bs;
+				dbConnection.Open();
+				OleDbDataReader reader = command.ExecuteReader();
 
-					}
-						
-				}
-			});
+				DataTable dt = new DataTable();
+				//BindingSource bs = new BindingSource();
+				dt.Load(reader);
+
+				//bs.DataSource = dt;
+				gvSearch.DataSource = dt;
+
+				dbConnection.Close();
+
+
+			}
+			//);
 			
 		}
 
 		private void txtIdentity_KeyDown(object sender, KeyEventArgs e)
 		{
-			SearchAction(sender, e);
+			if (e.KeyCode == Keys.Enter)
+				SearchAction(sender, e);
 		}
 
 		private void SearchAction(object sender, KeyEventArgs e)
 		{
-			if (e.KeyCode == Keys.Enter)
-			{
-				//if (((TextBox)sender).Text != "")
-					BindGridView();
-				//else
-				//	UnBindGridView();
-			}
+			BindGridView();
 		}
 
 		private void UnBindGridView()
@@ -128,17 +117,20 @@ namespace IDPSFamiliesExcelReporter
 
 		private void txtFname_KeyDown(object sender, KeyEventArgs e)
 		{
-			SearchAction(sender, e);
+			if (e.KeyCode == Keys.Enter)
+				SearchAction(sender, e);
 		}
 
 		private void txtSname_KeyDown(object sender, KeyEventArgs e)
 		{
-			SearchAction(sender, e);
+			if (e.KeyCode == Keys.Enter)
+				SearchAction(sender, e);
 		}
 
 		private void txtFamiliyName_KeyDown(object sender, KeyEventArgs e)
 		{
-			SearchAction(sender, e);
+			if (e.KeyCode == Keys.Enter)
+				SearchAction(sender, e);
 		}
 
 		private void SearchForm_KeyDown(object sender, KeyEventArgs e)
@@ -186,40 +178,13 @@ namespace IDPSFamiliesExcelReporter
 
 		private void SearchFormGaza_Load(object sender, EventArgs e)
 		{
-			txtPageNumber.Text = pageIndex.ToString();
+			//txtPageNumber.Text = pageIndex.ToString();
 		}
 
 		private void txtTName_KeyDown(object sender, KeyEventArgs e)
 		{
-			SearchAction(sender, e);
-		}
-
-		private void gvSearch_CellClick(object sender, DataGridViewCellEventArgs e)
-		{
-			if (e.RowIndex > 0)
-			{
-				if (e.ColumnIndex == 0)
-				{
-					Options.copy_data.Clear();
-					string identity = gvSearch.SelectedRows[0].Cells[1].Value.ToString();
-					string FName = gvSearch.SelectedRows[0].Cells[2].Value.ToString();
-					string SName = gvSearch.SelectedRows[0].Cells[3].Value.ToString();
-					string TName = gvSearch.SelectedRows[0].Cells[4].Value.ToString();
-					string LName = gvSearch.SelectedRows[0].Cells[5].Value.ToString();
-					DateTime DOB = Convert.ToDateTime( gvSearch.SelectedRows[0].Cells[7].Value);
-
-
-					Options.copy_data.Add(identity);
-					Options.copy_data.Add(FName);
-					Options.copy_data.Add(SName);
-					Options.copy_data.Add(TName);
-					Options.copy_data.Add(LName);
-					Options.copy_data.Add(DOB);
-
-
-					
-				}
-			}
+			if (e.KeyCode == Keys.Enter)
+				SearchAction(sender, e);
 		}
 
 		private void SearchFormGaza_FormClosing(object sender, FormClosingEventArgs e)
@@ -229,13 +194,13 @@ namespace IDPSFamiliesExcelReporter
 
 		private void btnNext_Click(object sender, EventArgs e)
 		{
-			if (!isLastPage())
-			{
-				pageIndex++;
-				txtPageNumber.Text = pageIndex.ToString();
+			//if (!isLastPage())
+			//{
+			//	pageIndex++;
+			//	txtPageNumber.Text = pageIndex.ToString();
 
-				BindGridView();
-			}
+			//	BindGridView();
+			//}
 		}
 
 		private bool isLastPage()
@@ -245,12 +210,12 @@ namespace IDPSFamiliesExcelReporter
 
 		private void btnPrevious_Click(object sender, EventArgs e)
 		{
-			if (!isFirstPage())
-			{
-				pageIndex--;
-				txtPageNumber.Text = pageIndex.ToString();
-				BindGridView();
-			}
+			//if (!isFirstPage())
+			//{
+			//	pageIndex--;
+			//	txtPageNumber.Text = pageIndex.ToString();
+			//	BindGridView();
+			//}
 		}
 
 		private bool isFirstPage()
@@ -270,6 +235,43 @@ namespace IDPSFamiliesExcelReporter
 			{
 				// Load More Data();
 			}
+		}
+
+		private void gvSearch_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+		{
+			if (e.RowIndex > -1)
+			{
+				String id = gvSearch.Rows[e.RowIndex].Cells[1].Value.ToString();
+				String fname = gvSearch.Rows[e.RowIndex].Cells[2].Value.ToString();
+				String sname = gvSearch.Rows[e.RowIndex].Cells[3].Value.ToString();
+				String tname = gvSearch.Rows[e.RowIndex].Cells[4].Value.ToString();
+
+				DateTime DOB = Convert.ToDateTime(gvSearch.SelectedRows[0].Cells[7].Value);
+				String familyName = gvSearch.Rows[e.RowIndex].Cells[5].Value.ToString();
+				
+				
+				Clipboard.SetText($"{id}");
+				Options.copy_data.Clear();
+				Options.copy_data.Add(DateTime.Now);
+				Options.copy_data.Add(id);
+				Options.copy_data.Add(fname);
+				Options.copy_data.Add(sname);
+				Options.copy_data.Add(tname);
+				Options.copy_data.Add(familyName);
+				Options.copy_data.Add(DOB);
+			}
+		}
+
+		private void btnNewSearch_Click(object sender, EventArgs e)
+		{
+			txtFamiliyName.Text = "";
+			txtFname.Text = "";
+			txtTName.Text = "";
+			txtSname.Text = "";
+			txtIdentity.Text = "";
+
+			Options.copy_data.Clear();
+			gvSearch.DataSource = null;
 		}
 	}
 }
