@@ -42,6 +42,7 @@
 			this.txtTName = new System.Windows.Forms.TextBox();
 			this.label6 = new System.Windows.Forms.Label();
 			this.btnNewSearch = new System.Windows.Forms.Button();
+			this.btnSearch = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.gvSearch)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -55,13 +56,13 @@
 			this.gvSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.gvSearch.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Copy});
-			this.gvSearch.Location = new System.Drawing.Point(12, 182);
+			this.gvSearch.Location = new System.Drawing.Point(12, 210);
 			this.gvSearch.MultiSelect = false;
 			this.gvSearch.Name = "gvSearch";
 			this.gvSearch.ReadOnly = true;
 			this.gvSearch.RowHeadersVisible = false;
 			this.gvSearch.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.gvSearch.Size = new System.Drawing.Size(974, 424);
+			this.gvSearch.Size = new System.Drawing.Size(974, 396);
 			this.gvSearch.TabIndex = 0;
 			this.gvSearch.VirtualMode = true;
 			this.gvSearch.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvSearch_CellDoubleClick);
@@ -197,10 +198,10 @@
 			// 
 			// btnNewSearch
 			// 
-			this.btnNewSearch.BackColor = System.Drawing.SystemColors.ActiveCaption;
+			this.btnNewSearch.BackColor = System.Drawing.Color.DarkOrange;
 			this.btnNewSearch.Font = new System.Drawing.Font("AdvertisingLight", 15.75F);
 			this.btnNewSearch.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.btnNewSearch.Location = new System.Drawing.Point(805, 122);
+			this.btnNewSearch.Location = new System.Drawing.Point(805, 150);
 			this.btnNewSearch.Name = "btnNewSearch";
 			this.btnNewSearch.Size = new System.Drawing.Size(181, 54);
 			this.btnNewSearch.TabIndex = 57;
@@ -208,12 +209,26 @@
 			this.btnNewSearch.UseVisualStyleBackColor = false;
 			this.btnNewSearch.Click += new System.EventHandler(this.btnNewSearch_Click);
 			// 
+			// btnSearch
+			// 
+			this.btnSearch.BackColor = System.Drawing.SystemColors.ActiveCaption;
+			this.btnSearch.Font = new System.Drawing.Font("AdvertisingLight", 15.75F);
+			this.btnSearch.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.btnSearch.Location = new System.Drawing.Point(613, 150);
+			this.btnSearch.Name = "btnSearch";
+			this.btnSearch.Size = new System.Drawing.Size(181, 54);
+			this.btnSearch.TabIndex = 58;
+			this.btnSearch.Text = "ابحث عن البيانات";
+			this.btnSearch.UseVisualStyleBackColor = false;
+			this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+			// 
 			// SearchFormGaza
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.ClientSize = new System.Drawing.Size(998, 618);
+			this.Controls.Add(this.btnSearch);
 			this.Controls.Add(this.btnNewSearch);
 			this.Controls.Add(this.label6);
 			this.Controls.Add(this.label4);
@@ -248,17 +263,18 @@
 
 		private System.Windows.Forms.DataGridView gvSearch;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.TextBox txtIdentity;
+		public System.Windows.Forms.TextBox txtIdentity;
 		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.TextBox txtFname;
+		public System.Windows.Forms.TextBox txtFname;
 		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.TextBox txtSname;
+		public System.Windows.Forms.TextBox txtSname;
 		private System.Windows.Forms.Label label5;
-		private System.Windows.Forms.TextBox txtFamiliyName;
+		public System.Windows.Forms.TextBox txtFamiliyName;
 		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.TextBox txtTName;
+		public System.Windows.Forms.TextBox txtTName;
 		private System.Windows.Forms.DataGridViewButtonColumn Copy;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.Button btnNewSearch;
+		private System.Windows.Forms.Button btnSearch;
 	}
 }

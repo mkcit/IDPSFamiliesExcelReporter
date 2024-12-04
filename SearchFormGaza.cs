@@ -38,7 +38,7 @@ namespace IDPSFamiliesExcelReporter
 
 			if (Identity != "")
 			{
-				cond += " Identity='" + Identity + "'";
+				cond += " Identity like '%" + Identity + "%'";
 			}
 			if (FName != "")
 			{
@@ -272,6 +272,11 @@ namespace IDPSFamiliesExcelReporter
 
 			Options.copy_data.Clear();
 			gvSearch.DataSource = null;
+		}
+
+		private void btnSearch_Click(object sender, EventArgs e)
+		{
+			SearchAction(null,null);
 		}
 	}
 }
