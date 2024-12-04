@@ -595,7 +595,8 @@ namespace IDPSFamiliesExcelReporter
 
                             DateTime dob;
                             bool isSucess = DateTime.TryParse(
-                                gvIDPOperation.Rows[0].Cells[23].Value.ToString(), out dob);
+                                gvIDPOperation.Rows[0].Cells[23].Value.ToString(),
+                                out dob);
                             if (isSucess)
                             {
 								if (IsGreaterThan60(dob))
@@ -636,7 +637,8 @@ namespace IDPSFamiliesExcelReporter
                 {
                     for (int i = 1; i < gvIDPOperation.Rows.Count; i++)
                     {
-                        int state = Convert.ToInt32(gvIDPOperation.Rows[i].Cells[15].Value);
+                        int state = 
+                            Convert.ToInt32(gvIDPOperation.Rows[i].Cells[15].Value);
 
                         if (state != 1)
                         {
@@ -704,7 +706,20 @@ namespace IDPSFamiliesExcelReporter
                                         SetFailRowStyleInGridView(i, -1, "لا يوجد بيانات في السجل المدني");
                                     }
                                 }
-                            }
+
+								DateTime dob;
+								bool isSucess = DateTime.TryParse(
+									gvIDPOperation.Rows[i].Cells[23].Value.ToString(),
+									out dob);
+								if (isSucess)
+								{
+									if (IsGreaterThan60(dob))
+									{
+										gvIDPOperation.Rows[i].Cells[11].Value = true;
+									}
+									
+								}
+							}
                         }
                         
                     }
@@ -758,14 +773,40 @@ namespace IDPSFamiliesExcelReporter
 
 		private void btnDataGaza_Click(object sender, EventArgs e)
 		{
-            if (!SearchFormGaza.activate)
-            {
+			ShowCivilGazaSystem("","","","");
+		}
+
+		private static void ShowCivilGazaSystem(string fname, string sname, string tName, string familiyName)
+		{
+			if (!SearchFormGaza.activate)
+			{
 				SearchFormGaza.activate = true;
 				SearchFormGaza form = new SearchFormGaza();
-
+				form.txtFamiliyName.Text = familiyName;
+				form.txtFname.Text = fname;
+				form.txtTName.Text = tName;
+				form.txtSname.Text = sname;
 				form.Show();
 			}
-            
+		}
+
+		private void gvIDPOperation_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+		{
+            if (e.RowIndex > -1 && e.ColumnIndex == 1)
+            {
+                string fname = gvIDPOperation.Rows[0].Cells[18].Value.ToString();
+                string sname = gvIDPOperation.Rows[0].Cells[19].Value.ToString();
+                string tname = gvIDPOperation.Rows[0].Cells[20].Value.ToString();
+                string lname = gvIDPOperation.Rows[0].Cells[21].Value.ToString();
+
+                if (fname != "" && sname != "" && tname != "" && lname != "")
+                {
+                    String gender = gvIDPOperation.Rows[0].Cells[22].Value.ToString();
+
+                    if (gender == "1")
+                        ShowCivilGazaSystem("", fname, sname, lname);
+                }
+            }
 		}
 	}
 }

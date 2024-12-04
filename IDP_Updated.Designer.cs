@@ -40,19 +40,6 @@
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.gvIDPOperation = new System.Windows.Forms.DataGridView();
-			this.btnSave = new System.Windows.Forms.Button();
-			this.lbHOFIdentity = new System.Windows.Forms.Label();
-			this.lbHOFFName = new System.Windows.Forms.Label();
-			this.lbHOFSName = new System.Windows.Forms.Label();
-			this.lbHOFFamilyName = new System.Windows.Forms.Label();
-			this.lbHOFGender = new System.Windows.Forms.Label();
-			this.btnCheck = new System.Windows.Forms.Button();
-			this.label1 = new System.Windows.Forms.Label();
-			this.label2 = new System.Windows.Forms.Label();
-			this.label3 = new System.Windows.Forms.Label();
-			this.label4 = new System.Windows.Forms.Label();
-			this.cbYes = new System.Windows.Forms.CheckBox();
-			this.btnDataGaza = new System.Windows.Forms.Button();
 			this.cIdentity = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.cRelation = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.cPrgenant = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -77,6 +64,19 @@
 			this.cFamilyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.cGender = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.cDOB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.btnSave = new System.Windows.Forms.Button();
+			this.lbHOFIdentity = new System.Windows.Forms.Label();
+			this.lbHOFFName = new System.Windows.Forms.Label();
+			this.lbHOFSName = new System.Windows.Forms.Label();
+			this.lbHOFFamilyName = new System.Windows.Forms.Label();
+			this.lbHOFGender = new System.Windows.Forms.Label();
+			this.btnCheck = new System.Windows.Forms.Button();
+			this.label1 = new System.Windows.Forms.Label();
+			this.label2 = new System.Windows.Forms.Label();
+			this.label3 = new System.Windows.Forms.Label();
+			this.label4 = new System.Windows.Forms.Label();
+			this.cbYes = new System.Windows.Forms.CheckBox();
+			this.btnDataGaza = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.gvIDPOperation)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -148,153 +148,8 @@
 			this.gvIDPOperation.TabIndex = 0;
 			this.gvIDPOperation.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvIDPOperation_CellClick);
 			this.gvIDPOperation.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvIDPOperation_CellContentClick);
+			this.gvIDPOperation.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvIDPOperation_CellDoubleClick);
 			this.gvIDPOperation.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.gvIDPOperation_EditingControlShowing);
-			// 
-			// btnSave
-			// 
-
-			this.btnSave.BackColor = System.Drawing.SystemColors.ActiveCaption;
-			this.btnSave.Font = new System.Drawing.Font("AdvertisingLight", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.btnSave.Location = new System.Drawing.Point(185, 13);
-			this.btnSave.Name = "btnSave";
-			this.btnSave.Size = new System.Drawing.Size(167, 54);
-			this.btnSave.TabIndex = 1;
-			this.btnSave.Text = "حفظ البطاقة";
-			this.btnSave.UseVisualStyleBackColor = false;
-			this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-			// 
-			// lbHOFIdentity
-			// 
-			this.lbHOFIdentity.AutoSize = true;
-			this.lbHOFIdentity.Location = new System.Drawing.Point(1145, 9);
-			this.lbHOFIdentity.Name = "lbHOFIdentity";
-			this.lbHOFIdentity.Size = new System.Drawing.Size(74, 13);
-			this.lbHOFIdentity.TabIndex = 2;
-			this.lbHOFIdentity.Text = "lbHOFIdentity";
-			this.lbHOFIdentity.Visible = false;
-			// 
-			// lbHOFFName
-			// 
-			this.lbHOFFName.AutoSize = true;
-			this.lbHOFFName.Location = new System.Drawing.Point(1150, 25);
-			this.lbHOFFName.Name = "lbHOFFName";
-			this.lbHOFFName.Size = new System.Drawing.Size(69, 13);
-			this.lbHOFFName.TabIndex = 3;
-			this.lbHOFFName.Text = "lbHOFFName";
-			this.lbHOFFName.Visible = false;
-			// 
-			// lbHOFSName
-			// 
-			this.lbHOFSName.AutoSize = true;
-			this.lbHOFSName.Location = new System.Drawing.Point(1150, 38);
-			this.lbHOFSName.Name = "lbHOFSName";
-			this.lbHOFSName.Size = new System.Drawing.Size(69, 13);
-			this.lbHOFSName.TabIndex = 4;
-			this.lbHOFSName.Text = "lbHOFSName";
-			this.lbHOFSName.Visible = false;
-			// 
-			// lbHOFFamilyName
-			// 
-			this.lbHOFFamilyName.AutoSize = true;
-			this.lbHOFFamilyName.Location = new System.Drawing.Point(1126, 51);
-			this.lbHOFFamilyName.Name = "lbHOFFamilyName";
-			this.lbHOFFamilyName.Size = new System.Drawing.Size(93, 13);
-			this.lbHOFFamilyName.TabIndex = 5;
-			this.lbHOFFamilyName.Text = "lbHOFFamilyName";
-			this.lbHOFFamilyName.Visible = false;
-			// 
-			// lbHOFGender
-			// 
-			this.lbHOFGender.AutoSize = true;
-			this.lbHOFGender.Location = new System.Drawing.Point(1068, 17);
-			this.lbHOFGender.Name = "lbHOFGender";
-			this.lbHOFGender.Size = new System.Drawing.Size(71, 13);
-			this.lbHOFGender.TabIndex = 6;
-			this.lbHOFGender.Text = "lbHOFGender";
-			this.lbHOFGender.Visible = false;
-			// 
-			// btnCheck
-			// 
-			this.btnCheck.BackColor = System.Drawing.SystemColors.ActiveCaption;
-			this.btnCheck.Font = new System.Drawing.Font("AdvertisingLight", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.btnCheck.Location = new System.Drawing.Point(12, 13);
-			this.btnCheck.Name = "btnCheck";
-			this.btnCheck.Size = new System.Drawing.Size(167, 54);
-			this.btnCheck.TabIndex = 7;
-			this.btnCheck.Text = "افحص المعلومات";
-			this.btnCheck.UseVisualStyleBackColor = false;
-			this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
-			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.ForeColor = System.Drawing.Color.Red;
-			this.label1.Location = new System.Drawing.Point(883, 12);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(100, 23);
-			this.label1.TabIndex = 8;
-			this.label1.Text = "[ENTER]";
-			// 
-			// label2
-			// 
-			this.label2.AutoSize = true;
-			this.label2.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label2.ForeColor = System.Drawing.Color.ForestGreen;
-			this.label2.Location = new System.Drawing.Point(883, 46);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(100, 23);
-			this.label2.TabIndex = 9;
-			this.label2.Text = "[SPACE]";
-			// 
-			// label3
-			// 
-			this.label3.AutoSize = true;
-			this.label3.Font = new System.Drawing.Font("AdvertisingMedium", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.label3.ForeColor = System.Drawing.SystemColors.Control;
-			this.label3.Location = new System.Drawing.Point(677, 9);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(191, 29);
-			this.label3.TabIndex = 10;
-			this.label3.Text = "إضافة رب أسرة - ابن/ابنه";
-			// 
-			// label4
-			// 
-			this.label4.AutoSize = true;
-			this.label4.Font = new System.Drawing.Font("AdvertisingMedium", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.label4.ForeColor = System.Drawing.SystemColors.Control;
-			this.label4.Location = new System.Drawing.Point(772, 43);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(96, 29);
-			this.label4.TabIndex = 11;
-			this.label4.Text = "إضافة زوجة";
-			// 
-			// cbYes
-			// 
-			this.cbYes.AutoSize = true;
-			this.cbYes.Font = new System.Drawing.Font("AdvertisingLight", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.cbYes.ForeColor = System.Drawing.SystemColors.Control;
-			this.cbYes.Location = new System.Drawing.Point(358, 22);
-			this.cbYes.Name = "cbYes";
-			this.cbYes.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.cbYes.Size = new System.Drawing.Size(200, 36);
-			this.cbYes.TabIndex = 12;
-			this.cbYes.Text = "اسأل عن رقم الجوال ؟";
-			this.cbYes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.cbYes.UseVisualStyleBackColor = true;
-			this.cbYes.Visible = false;
-			// 
-			// btnDataGaza
-			// 
-			this.btnDataGaza.BackColor = System.Drawing.SystemColors.Info;
-			this.btnDataGaza.Font = new System.Drawing.Font("AdvertisingLight", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.btnDataGaza.Location = new System.Drawing.Point(1071, 9);
-			this.btnDataGaza.Name = "btnDataGaza";
-			this.btnDataGaza.Size = new System.Drawing.Size(167, 54);
-			this.btnDataGaza.TabIndex = 13;
-			this.btnDataGaza.Text = "السجل المدني";
-			this.btnDataGaza.UseVisualStyleBackColor = false;
-			this.btnDataGaza.Click += new System.EventHandler(this.btnDataGaza_Click);
 			// 
 			// cIdentity
 			// 
@@ -504,11 +359,156 @@
 			this.cDOB.Visible = false;
 			this.cDOB.Width = 97;
 			// 
+			// btnSave
+			// 
+			this.btnSave.BackColor = System.Drawing.SystemColors.ActiveCaption;
+			this.btnSave.Font = new System.Drawing.Font("AdvertisingLight", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.btnSave.Location = new System.Drawing.Point(185, 13);
+			this.btnSave.Name = "btnSave";
+			this.btnSave.Size = new System.Drawing.Size(167, 54);
+			this.btnSave.TabIndex = 1;
+			this.btnSave.Text = "حفظ البطاقة";
+			this.btnSave.UseVisualStyleBackColor = false;
+			this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+			// 
+			// lbHOFIdentity
+			// 
+			this.lbHOFIdentity.AutoSize = true;
+			this.lbHOFIdentity.Location = new System.Drawing.Point(1145, 9);
+			this.lbHOFIdentity.Name = "lbHOFIdentity";
+			this.lbHOFIdentity.Size = new System.Drawing.Size(74, 13);
+			this.lbHOFIdentity.TabIndex = 2;
+			this.lbHOFIdentity.Text = "lbHOFIdentity";
+			this.lbHOFIdentity.Visible = false;
+			// 
+			// lbHOFFName
+			// 
+			this.lbHOFFName.AutoSize = true;
+			this.lbHOFFName.Location = new System.Drawing.Point(1150, 25);
+			this.lbHOFFName.Name = "lbHOFFName";
+			this.lbHOFFName.Size = new System.Drawing.Size(69, 13);
+			this.lbHOFFName.TabIndex = 3;
+			this.lbHOFFName.Text = "lbHOFFName";
+			this.lbHOFFName.Visible = false;
+			// 
+			// lbHOFSName
+			// 
+			this.lbHOFSName.AutoSize = true;
+			this.lbHOFSName.Location = new System.Drawing.Point(1150, 38);
+			this.lbHOFSName.Name = "lbHOFSName";
+			this.lbHOFSName.Size = new System.Drawing.Size(69, 13);
+			this.lbHOFSName.TabIndex = 4;
+			this.lbHOFSName.Text = "lbHOFSName";
+			this.lbHOFSName.Visible = false;
+			// 
+			// lbHOFFamilyName
+			// 
+			this.lbHOFFamilyName.AutoSize = true;
+			this.lbHOFFamilyName.Location = new System.Drawing.Point(1126, 51);
+			this.lbHOFFamilyName.Name = "lbHOFFamilyName";
+			this.lbHOFFamilyName.Size = new System.Drawing.Size(93, 13);
+			this.lbHOFFamilyName.TabIndex = 5;
+			this.lbHOFFamilyName.Text = "lbHOFFamilyName";
+			this.lbHOFFamilyName.Visible = false;
+			// 
+			// lbHOFGender
+			// 
+			this.lbHOFGender.AutoSize = true;
+			this.lbHOFGender.Location = new System.Drawing.Point(1068, 17);
+			this.lbHOFGender.Name = "lbHOFGender";
+			this.lbHOFGender.Size = new System.Drawing.Size(71, 13);
+			this.lbHOFGender.TabIndex = 6;
+			this.lbHOFGender.Text = "lbHOFGender";
+			this.lbHOFGender.Visible = false;
+			// 
+			// btnCheck
+			// 
+			this.btnCheck.BackColor = System.Drawing.SystemColors.ActiveCaption;
+			this.btnCheck.Font = new System.Drawing.Font("AdvertisingLight", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.btnCheck.Location = new System.Drawing.Point(12, 13);
+			this.btnCheck.Name = "btnCheck";
+			this.btnCheck.Size = new System.Drawing.Size(167, 54);
+			this.btnCheck.TabIndex = 7;
+			this.btnCheck.Text = "افحص المعلومات";
+			this.btnCheck.UseVisualStyleBackColor = false;
+			this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label1.ForeColor = System.Drawing.Color.Red;
+			this.label1.Location = new System.Drawing.Point(883, 12);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(100, 23);
+			this.label1.TabIndex = 8;
+			this.label1.Text = "[ENTER]";
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label2.ForeColor = System.Drawing.Color.ForestGreen;
+			this.label2.Location = new System.Drawing.Point(883, 46);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(100, 23);
+			this.label2.TabIndex = 9;
+			this.label2.Text = "[SPACE]";
+			// 
+			// label3
+			// 
+			this.label3.AutoSize = true;
+			this.label3.Font = new System.Drawing.Font("AdvertisingMedium", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.label3.ForeColor = System.Drawing.SystemColors.Control;
+			this.label3.Location = new System.Drawing.Point(677, 9);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(191, 29);
+			this.label3.TabIndex = 10;
+			this.label3.Text = "إضافة رب أسرة - ابن/ابنه";
+			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Font = new System.Drawing.Font("AdvertisingMedium", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.label4.ForeColor = System.Drawing.SystemColors.Control;
+			this.label4.Location = new System.Drawing.Point(772, 43);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(96, 29);
+			this.label4.TabIndex = 11;
+			this.label4.Text = "إضافة زوجة";
+			// 
+			// cbYes
+			// 
+			this.cbYes.AutoSize = true;
+			this.cbYes.Font = new System.Drawing.Font("AdvertisingLight", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.cbYes.ForeColor = System.Drawing.SystemColors.Control;
+			this.cbYes.Location = new System.Drawing.Point(358, 22);
+			this.cbYes.Name = "cbYes";
+			this.cbYes.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.cbYes.Size = new System.Drawing.Size(200, 36);
+			this.cbYes.TabIndex = 12;
+			this.cbYes.Text = "اسأل عن رقم الجوال ؟";
+			this.cbYes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.cbYes.UseVisualStyleBackColor = true;
+			this.cbYes.Visible = false;
+			// 
+			// btnDataGaza
+			// 
+			this.btnDataGaza.BackColor = System.Drawing.SystemColors.Info;
+			this.btnDataGaza.Font = new System.Drawing.Font("AdvertisingLight", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.btnDataGaza.Location = new System.Drawing.Point(1071, 9);
+			this.btnDataGaza.Name = "btnDataGaza";
+			this.btnDataGaza.Size = new System.Drawing.Size(167, 54);
+			this.btnDataGaza.TabIndex = 13;
+			this.btnDataGaza.Text = "السجل المدني";
+			this.btnDataGaza.UseVisualStyleBackColor = false;
+			this.btnDataGaza.Click += new System.EventHandler(this.btnDataGaza_Click);
+			// 
 			// IDP_Updated
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = Options.Theme;
+			this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.ClientSize = new System.Drawing.Size(1248, 573);
 			this.Controls.Add(this.btnDataGaza);
 			this.Controls.Add(this.cbYes);
