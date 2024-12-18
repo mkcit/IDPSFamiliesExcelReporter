@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+			this.components = new System.ComponentModel.Container();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -72,6 +73,10 @@
 			this.cOlderPer = new System.Windows.Forms.DataGridViewCheckBoxColumn();
 			this.cChild_HOF = new System.Windows.Forms.DataGridViewCheckBoxColumn();
 			this.btnSave = new System.Windows.Forms.Button();
+			this.btnCopySName_TName_LName = new System.Windows.Forms.Button();
+			this.label7 = new System.Windows.Forms.Label();
+			this.tmrFlusher = new System.Windows.Forms.Timer(this.components);
+			this.btnPasteSName_TName_FamName = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.gvVul)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -478,12 +483,58 @@
 			this.btnSave.UseVisualStyleBackColor = false;
 			this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
 			// 
+			// btnCopySName_TName_LName
+			// 
+			this.btnCopySName_TName_LName.BackColor = System.Drawing.Color.Gold;
+			this.btnCopySName_TName_LName.Font = new System.Drawing.Font("AdvertisingLight", 15.75F);
+			this.btnCopySName_TName_LName.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.btnCopySName_TName_LName.Location = new System.Drawing.Point(361, 245);
+			this.btnCopySName_TName_LName.Name = "btnCopySName_TName_LName";
+			this.btnCopySName_TName_LName.Size = new System.Drawing.Size(124, 54);
+			this.btnCopySName_TName_LName.TabIndex = 97;
+			this.btnCopySName_TName_LName.Text = "انسخ F3";
+			this.btnCopySName_TName_LName.UseVisualStyleBackColor = false;
+			this.btnCopySName_TName_LName.Click += new System.EventHandler(this.btnCopySName_TName_LName_Click);
+			// 
+			// label7
+			// 
+			this.label7.AutoSize = true;
+			this.label7.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+			this.label7.Location = new System.Drawing.Point(358, 226);
+			this.label7.Name = "label7";
+			this.label7.Size = new System.Drawing.Size(264, 16);
+			this.label7.TabIndex = 98;
+			this.label7.Text = "انسخ/ اسم الأب - اسم الجد - اسم العائلة";
+			// 
+			// tmrFlusher
+			// 
+			this.tmrFlusher.Enabled = true;
+			this.tmrFlusher.Interval = 50;
+			this.tmrFlusher.Tick += new System.EventHandler(this.tmrFlusher_Tick);
+			// 
+			// btnPasteSName_TName_FamName
+			// 
+			this.btnPasteSName_TName_FamName.BackColor = System.Drawing.Color.Gold;
+			this.btnPasteSName_TName_FamName.Font = new System.Drawing.Font("AdvertisingLight", 15.75F);
+			this.btnPasteSName_TName_FamName.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.btnPasteSName_TName_FamName.Location = new System.Drawing.Point(498, 245);
+			this.btnPasteSName_TName_FamName.Name = "btnPasteSName_TName_FamName";
+			this.btnPasteSName_TName_FamName.Size = new System.Drawing.Size(124, 54);
+			this.btnPasteSName_TName_FamName.TabIndex = 99;
+			this.btnPasteSName_TName_FamName.Text = "لصق F4";
+			this.btnPasteSName_TName_FamName.UseVisualStyleBackColor = false;
+			this.btnPasteSName_TName_FamName.Click += new System.EventHandler(this.btnPasteSName_TName_FamName_Click);
+			// 
 			// AddIDP
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = Options.Theme;
+			this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.ClientSize = new System.Drawing.Size(1127, 346);
+			this.Controls.Add(this.btnPasteSName_TName_FamName);
+			this.Controls.Add(this.label7);
+			this.Controls.Add(this.btnCopySName_TName_LName);
 			this.Controls.Add(this.btnSave);
 			this.Controls.Add(this.gvVul);
 			this.Controls.Add(this.label16);
@@ -562,5 +613,9 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn cSepChild;
         private System.Windows.Forms.DataGridViewCheckBoxColumn cOlderPer;
         private System.Windows.Forms.DataGridViewCheckBoxColumn cChild_HOF;
-    }
+		private System.Windows.Forms.Button btnCopySName_TName_LName;
+		private System.Windows.Forms.Label label7;
+		private System.Windows.Forms.Timer tmrFlusher;
+		private System.Windows.Forms.Button btnPasteSName_TName_FamName;
+	}
 }

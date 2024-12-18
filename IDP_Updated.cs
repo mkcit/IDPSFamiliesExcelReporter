@@ -559,8 +559,9 @@ namespace IDPSFamiliesExcelReporter
             lbHOFIdentity.Text = "";
             lbHOFSName.Text = "";
             lbHOFGender.Text = "";
+            Options.CopiedData = "";
 
-            gvIDPOperation.Focus();
+			gvIDPOperation.Focus();
         }
 
         private void btnCheck_Click(object sender, EventArgs e)

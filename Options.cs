@@ -7,6 +7,7 @@ namespace IDPSFamiliesExcelReporter
 {
 	public  class Options
     {
+        internal static String CopiedData = "";
         internal readonly static List<object> copy_data = new List<object>();
         internal readonly static  String HIMSELF = "نفسه (رب الاسرة)";
         internal readonly static String WIFE = "زوجة";

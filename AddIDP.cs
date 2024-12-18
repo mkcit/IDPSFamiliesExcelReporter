@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
+using System.Windows.Media;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace IDPSFamiliesExcelReporter
 {
@@ -28,7 +32,9 @@ namespace IDPSFamiliesExcelReporter
         private DataGridView gvIDPOperation;
         private IDP_Updated iDP_Updated;
         bool printData;
-        public AddIDP(DataGridView gvIDPOperation, IDP_Updated iDP_Updated, bool printData)
+		private System.Drawing.Color originalColor;
+
+		public AddIDP(DataGridView gvIDPOperation, IDP_Updated iDP_Updated, bool printData)
         {
             this.printData = printData;
             this.iDP_Updated = iDP_Updated;
@@ -182,13 +188,17 @@ namespace IDPSFamiliesExcelReporter
         {
             if (e.KeyCode == Keys.F5)
             {
-                //btnSave_Click(sender, e);
+                btnSave_Click(null, null);
             }
-            else if ((e.KeyCode == Keys.F4))
+            else if ((e.KeyCode == Keys.F3))
             {
-                //btnNewIDP_Click(sender, e);
+                btnCopySName_TName_LName_Click(null, null);
             }
-            else if (e.KeyCode == Keys.Escape)
+			else if ((e.KeyCode == Keys.F4))
+			{
+				btnPasteSName_TName_FamName_Click(null, null);
+			}
+			else if (e.KeyCode == Keys.Escape)
             {
                 //btnClose_Click(sender, e);
             }
@@ -201,5 +211,45 @@ namespace IDPSFamiliesExcelReporter
                 cbGender.SelectedIndex = 2;
             }
         }
-    }
+
+		private void btnCopySName_TName_LName_Click(object sender, EventArgs e)
+		{
+			originalColor = txtSname.BackColor;
+
+			txtSname.BackColor = System.Drawing.Color.GreenYellow;
+			txtTname.BackColor = System.Drawing.Color.GreenYellow;
+			txtFamiliyName.BackColor = System.Drawing.Color.GreenYellow;
+
+			//Thread.Sleep(500);
+
+
+			Options.CopiedData = txtSname.Text + "," + txtTname.Text + "," + txtFamiliyName.Text;
+			tmrFlusher.Start();
+
+			
+
+		}
+
+		private void tmrFlusher_Tick(object sender, EventArgs e)
+		{
+            tmrFlusher.Stop();
+
+			txtSname.BackColor = originalColor;
+			txtTname.BackColor = originalColor;
+			txtFamiliyName.BackColor = originalColor;
+
+		}
+
+		private void btnPasteSName_TName_FamName_Click(object sender, EventArgs e)
+		{
+			if (Options.CopiedData != "")
+			{
+				String data = Options.CopiedData;
+				string[] names = data.Split(',');
+				txtSname.Text = names[0];
+				txtTname.Text = names[1];
+				txtFamiliyName.Text = names[2];
+			}
+		}
+	}
 }
